@@ -33,6 +33,12 @@ img,video,iframe{max-width:100%;height:auto;}
 #bottom-nav .nav-btn{min-width:0;}
 #bottom-nav .nav-btn>span:last-child{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:64px;}
 #tab-expertise li>span:first-child{min-width:0;}
+.deco-back{z-index:10;opacity:0.6;transform-origin:bottom center;transform:translateX(36px) translateY(8px) rotate(7deg) scale(0.86);}
+.deco-mid{z-index:20;opacity:0.85;transform-origin:bottom center;transform:translateX(18px) translateY(4px) rotate(3.5deg) scale(0.93);}
+@media (max-width:639px){
+  .deco-back{transform:translateX(20px) translateY(6px) rotate(5deg) scale(0.9);}
+  .deco-mid{transform:translateX(10px) translateY(3px) rotate(2.5deg) scale(0.95);}
+}
 button,a{touch-action:manipulation;}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;}
