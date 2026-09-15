@@ -71,16 +71,16 @@
 
 <header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]">
   <div class="h-16 px-gutter-mobile max-w-2xl mx-auto flex items-center justify-between">
-    <div class="flex items-center gap-space-sm">
-      <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+    <div class="flex items-center gap-space-sm min-w-0 flex-1">
+      <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center shrink-0">
         <span class="font-headline-sm text-headline-sm text-primary tracking-tight">LI</span>
       </div>
-      <div class="flex flex-col">
-        <span class="font-label-md text-label-md text-on-surface tracking-tight leading-none">LOMPO Ibrahim</span>
-        <span class="font-label-sm text-label-sm text-primary tracking-wider" data-i18n="header_role">Géomaticien - SIG, WebSIG & ML</span>
+      <div class="flex flex-col min-w-0">
+        <span class="font-label-md text-label-md text-on-surface tracking-tight leading-none whitespace-nowrap">LOMPO Ibrahim</span>
+        <span class="font-label-sm text-label-sm text-primary tracking-wider truncate" data-i18n="header_role">Géomaticien - SIG, WebSIG & ML</span>
       </div>
     </div>
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 shrink-0">
       <button onclick="toggleLang()" id="lang-btn" data-i18n-aria="lang_aria" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center hover:text-primary transition-colors" aria-label="Changer de langue">EN</button>
       <button onclick="showTab('contact')" data-i18n="contact" class="hidden sm:flex items-center justify-center px-space-md py-space-xs rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Contact</button>
     </div>
