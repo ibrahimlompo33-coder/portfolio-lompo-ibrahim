@@ -59,7 +59,7 @@ Le site intègre :
 - des données structurées JSON-LD (`Person`)
 - `robots.txt` et `sitemap.xml`
 
-> **Important** : avant publication, remplacez `https://VOTRE-DOMAINE-ICI` par votre domaine réel dans `index.html`, `robots.txt` et `sitemap.xml`.
+> **Information** : le site est déployé sur `https://portfolio-lompo-ibrahim.vercel.app`. Le SEO est mis à jour : meta description, Open Graph, données structurées JSON-LD, `robots.txt` et `sitemap.xml`.
 
 ## Contact
 
