@@ -20,14 +20,10 @@ var I18N = {
     "cta_start": "Démarrer",
     "plugins_heading": "Plugins QGIS",
     "plugins_intro": "Dépôt officiel QGIS Python Plugins Repository - 18 515+ téléchargements cumulés, 116 avis à 5/5.",
-    "date_georaster": "3 juin 2026",
     "desc_georaster": "Vectorisation raster, indices spectraux (NDVI/EVI/SAVI/NDWI/MNDWI/NDBI/NBR), analyse du terrain, statistiques zonales, classification K-Means et forêt aléatoire.",
     "view_sheet": "Voir la fiche",
-    "date_gee": "2 juin 2026",
     "desc_gee": "Extraction directe dans QGIS des jeux de données Google Earth Engine (Sentinel-2, Landsat, SRTM, MODIS NDVI, Global Forest Change) par emprise de couche vectorielle.",
-    "date_kobo": "25 juin 2026",
     "desc_kobo": "Import des données d'enquête terrain KoboToolbox et ODK Central en couches vectorielles QGIS (géopoint, géotrace, géoforme), synchronisation incrémentale.",
-    "date_veccore": "26 mai 2026",
     "desc_veccore": "Boîte à outils vectorielle complète : géoréférencement, jointures, nettoyage, calculs, statistiques, reprojection, export et automatisation pour les couches vectorielles QGIS.",
     "new_scan": "Nouveau - scan sécurité validé",
     "title_ml": "Apprentissage automatique LOMPO",
@@ -86,59 +82,46 @@ var I18N = {
     "parcours": "Parcours",
     "exp_heading": "Expérience professionnelle",
     "job1_title": "Cartographe indépendant",
-    "job1_period": "Déc. 2022 - présent",
     "job1_desc": "Croquis terrain pour particuliers, collecte de données et analyses spatiales, réalisation de cartes d'études et automatisation des flux cartographiques.",
     "job2_title": "Chef de projet - Association Espérance Cledan",
-    "job2_period": "Mars 2025 - présent",
     "job2_desc": "Planification et coordination des activités de terrain, animation d'équipes, rédaction des rapports d'activités.",
     "job3_title": "Stagiaire en urbanisme - Mairie de Fada N'Gourma",
-    "job3_period": "Sept. - Déc. 2023",
     "job3_desc": "Collecte des données foncières, réalisation de cartes thématiques, mise à jour du système d'information foncière municipal.",
     "vol_heading": "Engagement associatif & bénévolat",
     "vol1_title": "Bénévole - SUUDU ANDAL",
-    "vol1_period": "Janv. 2025 - présent",
     "vol1_dur": "1 an 9 mois",
     "vol2_title": "Volontaire FONIP - AIPJE-Association",
-    "vol2_period": "Mai 2025",
     "vol2_dur": "1 mois",
     "vol3_title": "Membre - Centre Burkinabè des Débats et des Plaidoyers",
-    "vol3_period": "Mai 2025 - présent",
     "vol3_dur": "1 an 5 mois",
     "vol4_title": "VNU en ligne - Mobilisation et sensibilisation numérique contre les VBG - UNICEF",
-    "vol4_period": "Juil. - Déc. 2025",
     "vol4_dur": "6 mois",
     "vol5_title": "Relais de communication - PNUD Côte d'Ivoire",
-    "vol5_period": "Juil. 2025 - présent",
     "vol5_dur": "1 an 3 mois",
     "vol6_title": "Campagne de sensibilisation : promouvoir le droit à la santé pour chaque enfant - UNICEF Niger",
     "vol7_title": "Campagne digitale JMS - OMS Rép. Centrafricaine",
-    "vol7_period": "Avr. 2025 - présent",
     "vol7_dur": "1 an 6 mois",
     "vol8_title": "Ambassadeur de la Paix - Association Peace Initiatives (API)",
-    "vol8_period": "Avr. 2025 - présent",
     "vol8_dur": "1 an 6 mois",
     "vol9_title": "Sensibilisation Journée mondiale de la Santé - OMS Tchad",
-    "vol9_period": "Avr. 2025 - présent",
     "vol9_dur": "1 an 6 mois",
     "research_heading": "Recherche",
     "res1_title": "Approche géospatiale pour l'optimisation de la localisation des centres de collecte des déchets solides à Ouagadougou",
-    "res1_sub": "Mémoire de Master professionnel - AFRIGIST, Nigeria - Août 2026",
+    "res1_sub": "Mémoire de Master professionnel - AFRIGIST, Nigeria",
     "res1_chip": "Diplômant",
     "res1_desc": "SIG, analyse de réseau, AHP, combinaison linéaire pondérée, modèle de couverture maximale (MCLP) et solveur VRP (ArcGIS Pro Network Analyst). Les 50 centres existants ne couvrent que 7,65 % de la population (194 500 / 2 542 641 hab.) ; l'analyse multicritère identifie 1 207 sites candidats sur 120,92 km² ; le MCLP sélectionne 10 nouveaux centres portant la couverture à 41,30 % (+33,65 points) ; itinéraires de collecte optimisés par VRP.",
     "res1_link": "Voir le mémoire (PDF)",
     "res2_title": "Analyse spatiale du potentiel de fertilité des sols de la commune de Gaoua",
-    "res2_sub": "Poster scientifique - AFRIGIST, Nigeria - Juin 2026",
+    "res2_sub": "Poster scientifique - AFRIGIST, Nigeria",
     "res2_desc": "Couplage de l'indice SAVI (Landsat 8, 2015-2025) et de paramètres topographiques (MNT SRTM 30 m) via une analyse multicritère AHP pondérée (SAVI 60 %, pente 30 %, altitude 10 %). Couvert végétal stable sur 84,07 % de la zone ; carte de potentiel dominée par les classes moyenne (48,99 %) et faible (47,80 %), forte fertilité concentrée dans les bas-fonds (1,69 %).",
     "res2_link": "Voir le poster (PDF)",
     "res3_title": "Impacts de l'insécurité foncière sur la sécurité alimentaire dans la commune de Fada N'Gourma",
-    "res3_sub": "Rapport de fin de cycle, Licence pro. ADDT - Centre Universitaire de Ziniaré - 2022-2023",
+    "res3_sub": "Rapport de fin de cycle, Licence pro. ADDT - Centre Universitaire de Ziniaré -",
     "res3_desc": "Enquêtes de terrain (60 répondants) et entretiens avec 7 personnes ressources. L'insécurité foncière (accaparement des terres, conflits fonciers) limite les capacités de production et d'accès aux denrées des ménages ; identification de stratégies d'adaptation institutionnelles, communautaires et individuelles. Travail directement lié au stage en urbanisme à la Mairie de Fada N'Gourma.",
     "edu_heading": "Formation",
     "edu1_title": "Master pro. Production et Gestion de l'Information Géospatiale",
-    "edu1_period": "Sept. 2025 - Août 2026",
     "edu1_place": "African Regional Institute for Geospatial Information Science and Technology (AFRIGIST), Nigeria",
     "edu2_title": "Licence Aménagement et Développement Durable du Territoire",
-    "edu2_period": "Oct. 2020 - Juil. 2024",
     "edu2_place": "Centre Universitaire de Ziniaré, Burkina Faso",
     "cf_name": "Nom",
     "cf_email": "Email",
@@ -171,14 +154,10 @@ var I18N = {
     "cta_start": "Start",
     "plugins_heading": "QGIS Plugins",
     "plugins_intro": "Official QGIS Python Plugins Repository - 18,515+ cumulative downloads, 116 five-star reviews.",
-    "date_georaster": "Jun 3, 2026",
     "desc_georaster": "Raster vectorization, spectral indices (NDVI/EVI/SAVI/NDWI/MNDWI/NDBI/NBR), terrain analysis, zonal statistics, K-Means and random forest classification.",
     "view_sheet": "View sheet",
-    "date_gee": "Jun 2, 2026",
     "desc_gee": "Direct in-QGIS extraction of Google Earth Engine datasets (Sentinel-2, Landsat, SRTM, MODIS NDVI, Global Forest Change) by vector layer extent.",
-    "date_kobo": "Jun 25, 2026",
     "desc_kobo": "Import KoboToolbox and ODK Central field survey data into QGIS vector layers (geopoint, geotrace, geoshape) with incremental synchronization.",
-    "date_veccore": "May 26, 2026",
     "desc_veccore": "Complete vector toolbox: georeferencing, joins, cleaning, calculations, statistics, reprojection, export and automation for QGIS vector layers.",
     "new_scan": "New - security scan validated",
     "title_ml": "LOMPO Machine Learning",
@@ -237,59 +216,46 @@ var I18N = {
     "parcours": "Career",
     "exp_heading": "Professional experience",
     "job1_title": "Freelance Cartographer",
-    "job1_period": "Dec 2022 - present",
     "job1_desc": "Field sketches for private clients, data collection and spatial analyses, production of study maps and automation of mapping workflows.",
     "job2_title": "Project Manager - Espérance Cledan Association",
-    "job2_period": "Mar 2025 - present",
     "job2_desc": "Planning and coordination of field activities, team facilitation, drafting of activity reports.",
     "job3_title": "Urban Planning Intern - Fada N'Gourma City Hall",
-    "job3_period": "Sep - Dec 2023",
     "job3_desc": "Land data collection, thematic map production, update of the municipal land information system.",
     "vol_heading": "Associations & volunteering",
     "vol1_title": "Volunteer - SUUDU ANDAL",
-    "vol1_period": "Jan 2025 - present",
     "vol1_dur": "1 yr 9 mo",
     "vol2_title": "Volunteer FONIP - AIPJE-Association",
-    "vol2_period": "May 2025",
     "vol2_dur": "1 mo",
     "vol3_title": "Member - Burkinabè Centre for Debates and Advocacy",
-    "vol3_period": "May 2025 - present",
     "vol3_dur": "1 yr 5 mo",
     "vol4_title": "Online UNV - Digital mobilization and awareness against GBV - UNICEF",
-    "vol4_period": "Jul - Dec 2025",
     "vol4_dur": "6 mo",
     "vol5_title": "Communications Relay - UNDP Côte d'Ivoire",
-    "vol5_period": "Jul 2025 - present",
     "vol5_dur": "1 yr 3 mo",
     "vol6_title": "Awareness campaign: promoting the right to health for every child - UNICEF Niger",
     "vol7_title": "JMS Digital Campaign - WHO Central African Republic",
-    "vol7_period": "Apr 2025 - present",
     "vol7_dur": "1 yr 6 mo",
     "vol8_title": "Peace Ambassador - Peace Initiatives Association (API)",
-    "vol8_period": "Apr 2025 - present",
     "vol8_dur": "1 yr 6 mo",
     "vol9_title": "World Health Day Awareness - WHO Chad",
-    "vol9_period": "Apr 2025 - present",
     "vol9_dur": "1 yr 6 mo",
     "research_heading": "Research",
     "res1_title": "Geospatial approach for optimizing the location of solid waste collection centers in Ouagadougou",
-    "res1_sub": "Professional Master's thesis - AFRIGIST, Nigeria - Aug 2026",
+    "res1_sub": "Professional Master's thesis - AFRIGIST, Nigeria",
     "res1_chip": "Graduating",
     "res1_desc": "GIS, network analysis, AHP, weighted linear combination, Maximal Covering Location Problem (MCLP) and VRP solver (ArcGIS Pro Network Analyst). The 50 existing centers cover only 7.65% of the population (194,500 / 2,542,641 inh.); the multi-criteria analysis identifies 1,207 candidate sites over 120.92 km²; the MCLP selects 10 new centers raising coverage to 41.30% (+33.65 points); collection routes optimized by VRP.",
     "res1_link": "View thesis (PDF)",
     "res2_title": "Spatial analysis of soil fertility potential in the commune of Gaoua",
-    "res2_sub": "Scientific poster - AFRIGIST, Nigeria - Jun 2026",
+    "res2_sub": "Scientific poster - AFRIGIST, Nigeria",
     "res2_desc": "Coupling of the SAVI index (Landsat 8, 2015-2025) and topographic parameters (SRTM 30 m DEM) through a weighted AHP multi-criteria analysis (SAVI 60%, slope 30%, elevation 10%). Stable vegetation cover over 84.07% of the area; potential map dominated by medium (48.99%) and low (47.80%) classes, with high fertility concentrated in lowlands (1.69%).",
     "res2_link": "View poster (PDF)",
     "res3_title": "Impacts of land tenure insecurity on food security in the commune of Fada N'Gourma",
-    "res3_sub": "End-of-program report, Professional Bachelor's in Territorial Planning and Sustainable Development (ADDT) - Centre Universitaire de Ziniaré - 2022-2023",
+    "res3_sub": "End-of-program report, Professional Bachelor's in Territorial Planning and Sustainable Development (ADDT) - Centre Universitaire de Ziniaré -",
     "res3_desc": "Field surveys (60 respondents) and interviews with 7 resource persons. Land tenure insecurity (land grabbing, land conflicts) limits households' production capacity and access to food; identification of institutional, community and individual adaptation strategies. Work directly linked to the urban planning internship at the Fada N'Gourma City Hall.",
     "edu_heading": "Education",
     "edu1_title": "Professional Master's in Geospatial Information Production and Management",
-    "edu1_period": "Sep 2025 - Aug 2026",
     "edu1_place": "African Regional Institute for Geospatial Information Science and Technology (AFRIGIST), Nigeria",
     "edu2_title": "Bachelor's in Territorial Planning and Sustainable Development",
-    "edu2_period": "Oct 2020 - Jul 2024",
     "edu2_place": "Centre Universitaire de Ziniaré, Burkina Faso",
     "cf_name": "Name",
     "cf_email": "Email",
@@ -303,7 +269,8 @@ var I18N = {
   }
 };
 
-var DEFAULT_LANG = 'fr';
+var DEFAULT_LANG = 'en';
+var DATE_END_LABELS = { fr: 'présent', en: 'present' };
 
 function getSavedLang() {
   try { return localStorage.getItem('portfolio_lang'); } catch (e) { return null; }
@@ -312,8 +279,40 @@ function getSavedLang() {
 function detectLang() {
   var saved = getSavedLang();
   if (saved && I18N[saved]) return saved;
-  var nav = (navigator.language || '').toLowerCase();
-  return nav.indexOf('en') === 0 ? 'en' : DEFAULT_LANG;
+  return DEFAULT_LANG;
+}
+
+function formatDayMonthYear(lang, y, m, d) {
+  return new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
+    year: 'numeric', month: 'short', day: 'numeric'
+  }).format(new Date(Date.UTC(y, m - 1, d || 1)));
+}
+
+function formatMonthYear(lang, y, m) {
+  return new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
+    year: 'numeric', month: 'short'
+  }).format(new Date(Date.UTC(y, m - 1, 1)));
+}
+
+function renderDates(lang) {
+  document.querySelectorAll('[data-date]').forEach(function (el) {
+    var p = el.getAttribute('data-date').split('-');
+    var y = +p[0], m = +p[1], d = p[2] ? +p[2] : 0;
+    el.textContent = d ? formatDayMonthYear(lang, y, m, d) : formatMonthYear(lang, y, m);
+  });
+  document.querySelectorAll('[data-date-start]').forEach(function (el) {
+    var s = el.getAttribute('data-date-start').split('-');
+    var e = el.getAttribute('data-date-end');
+    var start = formatMonthYear(lang, +s[0], +s[1]);
+    var end;
+    if (e === 'present') {
+      end = DATE_END_LABELS[lang] || 'present';
+    } else {
+      var ep = e.split('-');
+      end = formatMonthYear(lang, +ep[0], +ep[1]);
+    }
+    el.textContent = start + ' - ' + end;
+  });
 }
 
 function applyLang(lang) {
@@ -342,6 +341,8 @@ function applyLang(lang) {
     var key = el.getAttribute('data-i18n-aria');
     if (dict[key]) el.setAttribute('aria-label', dict[key]);
   });
+
+  renderDates(lang);
 
   try { localStorage.setItem('portfolio_lang', lang); } catch (e) {}
   var btn = document.getElementById('lang-btn');
