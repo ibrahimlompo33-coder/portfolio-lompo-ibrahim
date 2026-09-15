@@ -31,6 +31,9 @@ var I18N = {
     "no_reviews": "Aucun avis pour l'instant",
     "webgis_heading": "Plateformes WebGIS",
     "webgis_intro": "Applications web de cartographie déployées en production.",
+    "map_heading": "Carte interactive",
+    "map_btn_sat": "Fond satellite (Esri)",
+    "map_btn_osm": "Fond OpenStreetMap",
     "desc_ouaga": "Système d'information géographique de la ville : cartographie, exploration et extraction de données spatiales.",
     "open_project": "Ouvrir le projet",
     "desc_doutchi": "Plateforme SIG web de cartographie et d'exploration de données spatiales.",
@@ -165,6 +168,9 @@ var I18N = {
     "no_reviews": "No reviews yet",
     "webgis_heading": "WebGIS Platforms",
     "webgis_intro": "Web mapping applications deployed in production.",
+    "map_heading": "Interactive map",
+    "map_btn_sat": "Esri satellite basemap",
+    "map_btn_osm": "OpenStreetMap basemap",
     "desc_ouaga": "Geographic information system for the city: mapping, exploration and extraction of spatial data.",
     "open_project": "Open project",
     "desc_doutchi": "Web GIS platform for mapping and exploring spatial data.",
@@ -343,6 +349,7 @@ function applyLang(lang) {
   });
 
   renderDates(lang);
+  if (typeof mapToggleLabel === 'function') mapToggleLabel();
 
   try { localStorage.setItem('portfolio_lang', lang); } catch (e) {}
   var btn = document.getElementById('lang-btn');

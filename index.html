@@ -64,6 +64,8 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="assets/js/tailwind-config.js"></script>
 <link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body class="bg-surface-container-lowest font-body-md text-on-surface flex flex-col min-h-screen">
 
@@ -190,6 +192,12 @@
 
 <!-- ================= PROJETS ================= -->
 <section id="tab-projets" data-tab-panel class="hidden flex flex-col gap-space-lg">
+
+  <div class="flex items-center justify-between gap-2">
+    <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="map_heading">Carte interactive</h2>
+    <button id="map-basemap-toggle" type="button" class="chip">Fond satellite (Esri)</button>
+  </div>
+  <div id="projects-map" style="height:300px;"></div>
 
   <div>
     <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="plugins_heading">Plugins QGIS</h2>
