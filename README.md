@@ -62,7 +62,7 @@ Le site intègre :
 - des données structurées JSON-LD (`Person`)
 - `robots.txt` et `sitemap.xml`
 
-> **Information** : le site est déployé sur `https://portfolio-lompo-ibrahim.vercel.app`. Le SEO est mis à jour : meta description, Open Graph, données structurées JSON-LD, `robots.txt` et `sitemap.xml`.
+> **Information** : le site est déployé sur `https://lompo-ibrahim.vercel.app`. Le SEO est mis à jour : meta description, Open Graph, données structurées JSON-LD, `robots.txt` et `sitemap.xml`.
 
 > **Image de partage** : `og:image` pointe actuellement vers `assets/profil.jpg` (placeholder documenté). Pour un rendu optimal sur les réseaux sociaux, générer une image dédiée `assets/og-image.jpg` en 1200×630 (monogramme "LI" sur fond `#12B7D6`, nom et titre du profil) et mettre à jour le `content` des balises `og:image` / `twitter:image` dans `index.html`.
 

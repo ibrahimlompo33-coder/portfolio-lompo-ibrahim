@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-lompo-ibrahim.vercel.app/sitemap.xml
+Sitemap: https://lompo-ibrahim.vercel.app/sitemap.xml
