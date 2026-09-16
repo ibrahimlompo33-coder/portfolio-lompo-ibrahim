@@ -9,38 +9,38 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
 <meta name="author" content="LOMPO Ibrahim"/>
 <meta name="theme-color" content="#0a0e17"/>
-<link rel="canonical" href="https://lompo-ibrahim.vercel.app/"/>
+<link rel="canonical" href="https://portfolio-lompo-ibrahim.vercel.app/"/>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
 
 <!-- Open Graph -->
-<meta property="og:type" content="profile"/>
+<meta property="og:type" content="website"/>
 <meta property="og:locale" content="fr_FR"/>
 <meta property="og:site_name" content="LOMPO Ibrahim - Géomaticien"/>
 <meta property="og:title" content="LOMPO Ibrahim | Géomaticien & expert SIG - Burkina Faso"/>
 <meta property="og:description" content="Géomaticien spécialisé en télédétection, SIG, machine learning et WebSIG. Plugins QGIS (18 515+ téléchargements), plateformes WebGIS et recherche appliquée."/>
-<meta property="og:url" content="https://lompo-ibrahim.vercel.app/"/>
-<meta property="og:image" content="https://lompo-ibrahim.vercel.app/assets/profil.jpg"/>
+<meta property="og:url" content="https://portfolio-lompo-ibrahim.vercel.app/"/>
+<meta property="og:image" content="https://portfolio-lompo-ibrahim.vercel.app/assets/profil.jpg"/>
 <meta property="og:image:alt" content="Photo de LOMPO Ibrahim, géomaticien"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="LOMPO Ibrahim | Géomaticien & expert SIG - Burkina Faso"/>
 <meta name="twitter:description" content="Géomaticien spécialisé en télédétection, SIG, machine learning et WebSIG. Plugins QGIS (18 515+ téléchargements)."/>
-<meta name="twitter:image" content="https://lompo-ibrahim.vercel.app/assets/profil.jpg"/>
+<meta name="twitter:image" content="https://portfolio-lompo-ibrahim.vercel.app/assets/profil.jpg"/>
 
 <!-- Données structurées -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://lompo-ibrahim.vercel.app/#person",
+  "@id": "https://portfolio-lompo-ibrahim.vercel.app/#person",
   "name": "LOMPO Ibrahim",
   "givenName": "Ibrahim",
   "familyName": "LOMPO",
   "jobTitle": "Géomaticien",
   "description": "Géomaticien et développeur WebSIG spécialisé en télédétection, analyse spatiale, automatisation SIG, machine learning et développement d'outils géomatiques.",
-  "url": "https://lompo-ibrahim.vercel.app/",
-  "image": "https://lompo-ibrahim.vercel.app/assets/profil.jpg",
+  "url": "https://portfolio-lompo-ibrahim.vercel.app/",
+  "image": "https://portfolio-lompo-ibrahim.vercel.app/assets/profil.jpg",
   "email": "mailto:Ibrahimlompo33@gmail.com",
   "telephone": "+22664095443",
   "address": {
@@ -64,30 +64,25 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="assets/js/tailwind-config.js"></script>
 <link rel="stylesheet" href="assets/css/style.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body class="bg-surface-container-lowest font-body-md text-on-surface flex flex-col min-h-screen">
 
 <header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]">
   <div class="h-16 px-gutter-mobile max-w-2xl mx-auto flex items-center justify-between">
-    <div class="flex items-center gap-space-sm min-w-0 flex-1">
-      <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center shrink-0">
+    <div class="flex items-center gap-space-sm">
+      <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
         <span class="font-headline-sm text-headline-sm text-primary tracking-tight">LI</span>
       </div>
-      <div class="flex flex-col min-w-0">
-        <span class="font-label-md text-label-md text-on-surface tracking-tight leading-none whitespace-nowrap">LOMPO Ibrahim</span>
-        <span class="font-label-sm text-label-sm text-primary tracking-wider truncate" data-i18n="header_role">Géomaticien - SIG, WebSIG & ML</span>
+      <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface tracking-tight leading-none">LOMPO Ibrahim</span>
+        <span class="font-label-sm text-label-sm text-primary tracking-wider">Géomaticien - SIG, WebSIG & ML</span>
       </div>
     </div>
-    <div class="flex items-center gap-2 shrink-0">
-      <button onclick="toggleLang()" id="lang-btn" data-i18n-aria="lang_aria" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center hover:text-primary transition-colors" aria-label="Changer de langue">EN</button>
-      <button onclick="showTab('contact')" data-i18n="contact" class="hidden sm:flex items-center justify-center px-space-md py-space-xs rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Contact</button>
-    </div>
+    <button onclick="showTab('contact')" class="hidden sm:flex items-center justify-center px-space-md py-space-xs rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Contact</button>
   </div>
 </header>
 
-<main class="flex flex-col relative w-full flex-1 pt-20 pb-space-2xl bg-surface-container-lowest max-w-2xl mx-auto px-gutter-mobile">
+<main class="flex flex-col relative w-full pt-20 pb-space-2xl bg-surface-container-lowest max-w-2xl mx-auto px-gutter-mobile">
 
 <!-- ================= ACCUEIL ================= -->
 <section id="tab-accueil" data-tab-panel class="flex flex-col gap-space-lg">
@@ -96,29 +91,31 @@
 
     <!-- Carte décorative arrière : Recherche -->
     <button onclick="showTab('parcours')" aria-label="Voir la recherche dans Parcours"
-      class="deco-back absolute top-3 left-0 w-full h-[220px] bg-white rounded-[24px] p-6 shadow-2xl border border-slate-200/40 text-left">
+      class="absolute top-3 left-0 w-full h-[220px] bg-white rounded-[24px] p-6 shadow-2xl border border-slate-200/40 text-left"
+      style="transform-origin: bottom center; transform: translateX(36px) translateY(8px) rotate(7deg) scale(0.86); opacity:0.6; z-index:10;">
       <div class="flex items-center gap-2">
         <div class="w-8 h-8 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center">
           <span class="material-symbols-outlined text-[18px]">school</span>
         </div>
-        <span class="font-headline-sm text-sm font-bold text-[#1A1A1A]" data-i18n="deco_recherche">Recherche</span>
+        <span class="font-headline-sm text-sm font-bold text-[#1A1A1A]">Recherche</span>
       </div>
       <div class="mt-4 space-y-2"><div class="h-2 bg-slate-200 rounded w-3/4"></div><div class="h-2 bg-slate-100 rounded w-1/2"></div></div>
     </button>
 
     <!-- Carte décorative milieu : Plugins QGIS -->
     <button onclick="showTab('projets')" aria-label="Voir les plugins QGIS dans Projets"
-      class="deco-mid absolute top-2 left-0 w-full h-[230px] bg-white rounded-[24px] p-6 shadow-2xl border border-slate-200/50 text-left">
+      class="absolute top-2 left-0 w-full h-[230px] bg-white rounded-[24px] p-6 shadow-2xl border border-slate-200/50 text-left"
+      style="transform-origin: bottom center; transform: translateX(18px) translateY(4px) rotate(3.5deg) scale(0.93); opacity:0.85; z-index:20;">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">terminal</span>
           </div>
-          <span class="font-headline-sm text-sm font-bold text-[#1A1A1A]" data-i18n="deco_plugins">Plugins QGIS</span>
+          <span class="font-headline-sm text-sm font-bold text-[#1A1A1A]">Plugins QGIS</span>
         </div>
-        <span class="chip" data-i18n="deco_outils">5 outils</span>
+        <span class="chip">5 outils</span>
       </div>
-      <div class="mt-3 text-[11px] text-[#6B7280]" data-i18n="deco_downloads">18&nbsp;515+ téléchargements cumulés - 116 avis 5/5</div>
+      <div class="mt-3 text-[11px] text-[#6B7280]">18&nbsp;515+ téléchargements cumulés - 116 avis 5/5</div>
     </button>
 
     <!-- Carte active : profil -->
@@ -137,9 +134,9 @@
       </div>
 
       <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#1A1A1A] tracking-tight font-bold">LOMPO Ibrahim</h1>
-      <p class="font-headline-sm text-headline-sm text-primary font-semibold mt-1 tracking-tight" data-i18n="role_main">Géomaticien - SIG, Télédétection, WebSIG & ML</p>
+      <p class="font-headline-sm text-headline-sm text-primary font-semibold mt-1 tracking-tight">Géomaticien - SIG, Télédétection, WebSIG & ML</p>
       <p class="flex items-center gap-1 text-[12px] text-[#6B7280] mt-1">
-        <span class="material-symbols-outlined text-[14px]">location_on</span> <span data-i18n="location">Ouagadougou, Burkina Faso</span>
+        <span class="material-symbols-outlined text-[14px]">location_on</span> Ouagadougou, Burkina Faso
       </p>
 
       <div class="flex items-center justify-center gap-space-sm mt-space-md mb-space-md">
@@ -154,25 +151,25 @@
         </a>
       </div>
 
-      <p class="font-body-md text-body-md text-[#6B7280] leading-relaxed max-w-lg mb-space-lg text-center" data-i18n="bio">
+      <p class="font-body-md text-body-md text-[#6B7280] leading-relaxed max-w-lg mb-space-lg text-center">
         Géomaticien et développeur WebSIG spécialisé en télédétection, analyse spatiale, automatisation SIG et machine learning, avec une expertise en modélisation et prédiction de phénomènes spatiaux et en développement d'outils géomatiques sur mesure.
       </p>
 
       <div class="flex flex-col sm:flex-row items-stretch justify-center gap-space-sm w-full max-w-sm">
         <a class="w-full sm:flex-1 flex items-center justify-center gap-1.5 py-3 px-space-md rounded-2xl bg-gradient-to-r from-[#12B7D6] to-[#00D2EE] text-[#0A0E17] font-label-md text-label-md font-bold shadow-[0_8px_20px_-4px_rgba(18,183,214,0.5)] active:scale-95 transition-transform duration-150" href="assets/CV_Lompo_Ibrahim.pdf" download>
-          <span class="material-symbols-outlined text-[19px]">download</span><span data-i18n="dl_cv">Télécharger le CV</span>
+          <span class="material-symbols-outlined text-[19px]">download</span><span>Télécharger le CV</span>
         </a>
         <button onclick="showTab('contact')" class="w-full sm:flex-1 flex items-center justify-center gap-1.5 py-3 px-space-md rounded-2xl bg-[#E0F7FA] text-[#00838F] font-label-md text-label-md font-bold hover:bg-[#bbf0f7] active:scale-95 transition-transform duration-150">
-          <span class="material-symbols-outlined text-[19px]">mail</span><span data-i18n="contact">Contact</span>
+          <span class="material-symbols-outlined text-[19px]">mail</span><span>Contact</span>
         </button>
       </div>
 
       <div class="w-full mt-space-lg pt-space-md flex items-center justify-around bg-[#F9FAFB] rounded-xl px-space-sm py-space-sm">
-        <div class="flex flex-col items-center"><span class="font-headline-sm text-headline-sm text-primary font-bold">5</span><span class="font-label-sm text-label-sm text-[#6B7280] text-center" data-i18n="stat_plugins">Plugins QGIS</span></div>
+        <div class="flex flex-col items-center"><span class="font-headline-sm text-headline-sm text-primary font-bold">5</span><span class="font-label-sm text-label-sm text-[#6B7280] text-center">Plugins QGIS</span></div>
         <div class="w-px h-7 bg-gray-200"></div>
-        <div class="flex flex-col items-center"><span class="font-headline-sm text-headline-sm text-primary font-bold">18 515+</span><span class="font-label-sm text-label-sm text-[#6B7280] text-center" data-i18n="stat_downloads">Téléchargements</span></div>
+        <div class="flex flex-col items-center"><span class="font-headline-sm text-headline-sm text-primary font-bold">18 515+</span><span class="font-label-sm text-label-sm text-[#6B7280] text-center">Téléchargements</span></div>
         <div class="w-px h-7 bg-gray-200"></div>
-        <div class="flex flex-col items-center"><span class="font-headline-sm text-headline-sm text-primary font-bold">116</span><span class="font-label-sm text-label-sm text-[#6B7280] text-center" data-i18n="stat_avis">Avis 5★</span></div>
+        <div class="flex flex-col items-center"><span class="font-headline-sm text-headline-sm text-primary font-bold">116</span><span class="font-label-sm text-label-sm text-[#6B7280] text-center">Avis 5★</span></div>
       </div>
     </article>
   </div>
@@ -180,10 +177,10 @@
   <div class="w-full bg-gradient-to-r from-surface-container-high to-surface-container rounded-2xl p-space-md flex items-center justify-between text-on-surface mt-4">
     <div class="flex items-center gap-space-sm">
       <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
-      <span class="font-label-sm text-label-sm text-on-surface-variant font-medium" data-i18n="cta_title">Un projet en tête ? Parlons-en.</span>
+      <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Un projet en tête ? Parlons-en.</span>
     </div>
     <button onclick="showTab('contact')" class="font-label-sm text-label-sm text-primary font-bold hover:text-secondary flex items-center gap-0.5">
-      <span data-i18n="cta_start">Démarrer</span><span class="material-symbols-outlined text-[16px]">chevron_right</span>
+      <span>Démarrer</span><span class="material-symbols-outlined text-[16px]">chevron_right</span>
     </button>
   </div>
 </section>
@@ -191,103 +188,97 @@
 <!-- ================= PROJETS ================= -->
 <section id="tab-projets" data-tab-panel class="hidden flex flex-col gap-space-lg">
 
-  <div class="flex items-center justify-between gap-2 flex-wrap">
-    <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="map_heading">Carte interactive</h2>
-    <button id="map-basemap-toggle" type="button" class="chip">Fond satellite (Esri)</button>
-  </div>
-  <div id="projects-map" style="height:300px;"></div>
-
   <div>
-    <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="plugins_heading">Plugins QGIS</h2>
-    <p class="text-body-sm text-on-surface-variant mt-1" data-i18n="plugins_intro">Dépôt officiel QGIS Python Plugins Repository - 18&nbsp;515+ téléchargements cumulés, 116 avis à 5/5.</p>
+    <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Plugins QGIS</h2>
+    <p class="text-body-sm text-on-surface-variant mt-1">Dépôt officiel QGIS Python Plugins Repository - 18&nbsp;515+ téléchargements cumulés, 116 avis à 5/5.</p>
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3">
-      <div class="flex items-start justify-between flex-wrap">
+      <div class="flex items-start justify-between">
         <div class="w-10 h-10 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">terrain</span></div>
-        <span class="chip" data-date="2026-06-03">3 juin 2026</span>
+        <span class="chip">3 juin 2026</span>
       </div>
       <div>
         <h3 class="font-bold text-[#1A1A1A]">GeoRaster Tools</h3>
-        <p class="text-[13px] text-[#6B7280] mt-1" data-i18n="desc_georaster">Vectorisation raster, indices spectraux (NDVI/EVI/SAVI/NDWI/MNDWI/NDBI/NBR), analyse du terrain, statistiques zonales, classification K-Means et forêt aléatoire.</p>
+        <p class="text-[13px] text-[#6B7280] mt-1">Vectorisation raster, indices spectraux (NDVI/EVI/SAVI/NDWI/MNDWI/NDBI/NBR), analyse du terrain, statistiques zonales, classification K-Means et forêt aléatoire.</p>
       </div>
       <div class="flex items-center justify-between text-[12px] text-[#6B7280] mt-auto pt-2 border-t border-slate-100">
         <span><span class="star">★★★★★</span> (10)</span>
         <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">download</span>4 832</span>
       </div>
-      <a href="https://plugins.qgis.org/plugins/GeoRaster_Tools/" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="view_sheet">Voir la fiche</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
+      <a href="https://plugins.qgis.org/plugins/GeoRaster_Tools/" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1">Voir la fiche <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
     </div>
 
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3">
-      <div class="flex items-start justify-between flex-wrap">
+      <div class="flex items-start justify-between">
         <div class="w-10 h-10 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">satellite_alt</span></div>
-        <span class="chip" data-date="2026-06-02">2 juin 2026</span>
+        <span class="chip">2 juin 2026</span>
       </div>
       <div>
         <h3 class="font-bold text-[#1A1A1A]">GEE Extractor</h3>
-        <p class="text-[13px] text-[#6B7280] mt-1" data-i18n="desc_gee">Extraction directe dans QGIS des jeux de données Google Earth Engine (Sentinel-2, Landsat, SRTM, MODIS NDVI, Global Forest Change) par emprise de couche vectorielle.</p>
+        <p class="text-[13px] text-[#6B7280] mt-1">Extraction directe dans QGIS des jeux de données Google Earth Engine (Sentinel-2, Landsat, SRTM, MODIS NDVI, Global Forest Change) par emprise de couche vectorielle.</p>
       </div>
       <div class="flex items-center justify-between text-[12px] text-[#6B7280] mt-auto pt-2 border-t border-slate-100">
         <span><span class="star">★★★★★</span> (86)</span>
         <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">download</span>11 742</span>
       </div>
-      <a href="https://plugins.qgis.org/plugins/GoogleEarthEngineExtractor/" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="view_sheet">Voir la fiche</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
+      <a href="https://plugins.qgis.org/plugins/GoogleEarthEngineExtractor/" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1">Voir la fiche <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
     </div>
 
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3">
-      <div class="flex items-start justify-between flex-wrap">
+      <div class="flex items-start justify-between">
         <div class="w-10 h-10 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">edit_location_alt</span></div>
-        <span class="chip" data-date="2026-06-25">25 juin 2026</span>
+        <span class="chip">25 juin 2026</span>
       </div>
       <div>
         <h3 class="font-bold text-[#1A1A1A]">KoboToolbox FieldBridge</h3>
-        <p class="text-[13px] text-[#6B7280] mt-1" data-i18n="desc_kobo">Import des données d'enquête terrain KoboToolbox et ODK Central en couches vectorielles QGIS (géopoint, géotrace, géoforme), synchronisation incrémentale.</p>
+        <p class="text-[13px] text-[#6B7280] mt-1">Import des données d'enquête terrain KoboToolbox et ODK Central en couches vectorielles QGIS (géopoint, géotrace, géoforme), synchronisation incrémentale.</p>
       </div>
       <div class="flex items-center justify-between text-[12px] text-[#6B7280] mt-auto pt-2 border-t border-slate-100">
         <span><span class="star">★★★★★</span> (15)</span>
         <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">download</span>1 158</span>
       </div>
-      <a href="https://plugins.qgis.org/search/?q=KoboToolbox+FieldBridge" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="view_sheet">Voir la fiche</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
+      <a href="https://plugins.qgis.org/search/?q=KoboToolbox+FieldBridge" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1">Voir la fiche <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
     </div>
 
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3">
-      <div class="flex items-start justify-between flex-wrap">
+      <div class="flex items-start justify-between">
         <div class="w-10 h-10 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">hub</span></div>
-        <span class="chip" data-date="2026-05-26">26 mai 2026</span>
+        <span class="chip">26 mai 2026</span>
       </div>
       <div>
         <h3 class="font-bold text-[#1A1A1A]">VecCore</h3>
-        <p class="text-[13px] text-[#6B7280] mt-1" data-i18n="desc_veccore">Boîte à outils vectorielle complète : géoréférencement, jointures, nettoyage, calculs, statistiques, reprojection, export et automatisation pour les couches vectorielles QGIS.</p>
+        <p class="text-[13px] text-[#6B7280] mt-1">Boîte à outils vectorielle complète : géoréférencement, jointures, nettoyage, calculs, statistiques, reprojection, export et automatisation pour les couches vectorielles QGIS.</p>
       </div>
       <div class="flex items-center justify-between text-[12px] text-[#6B7280] mt-auto pt-2 border-t border-slate-100">
         <span><span class="star">★★★★★</span> (5)</span>
         <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">download</span>783</span>
       </div>
-      <a href="https://plugins.qgis.org/search/?q=VecCore" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="view_sheet">Voir la fiche</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
+      <a href="https://plugins.qgis.org/search/?q=VecCore" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1">Voir la fiche <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
     </div>
 
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3 sm:col-span-2">
-      <div class="flex items-start justify-between flex-wrap">
+      <div class="flex items-start justify-between">
         <div class="w-10 h-10 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">smart_toy</span></div>
-        <span class="chip bg-slate-100 text-slate-600" data-i18n="new_scan">Nouveau - scan sécurité validé</span>
+        <span class="chip bg-slate-100 text-slate-600">Nouveau - scan sécurité validé</span>
       </div>
       <div>
-        <h3 class="font-bold text-[#1A1A1A]" data-i18n="title_ml">Apprentissage automatique LOMPO</h3>
-        <p class="text-[13px] text-[#6B7280] mt-1" data-i18n="desc_ml">Transforme QGIS en station de travail de pointe en machine learning spatial ; automatise les classifications d'occupation du sol.</p>
+        <h3 class="font-bold text-[#1A1A1A]">Apprentissage automatique LOMPO</h3>
+        <p class="text-[13px] text-[#6B7280] mt-1">Transforme QGIS en station de travail de pointe en machine learning spatial ; automatise les classifications d'occupation du sol.</p>
       </div>
       <div class="flex items-center justify-between text-[12px] text-[#6B7280] mt-auto pt-2 border-t border-slate-100">
-        <span class="text-slate-400" data-i18n="no_reviews">Aucun avis pour l'instant</span>
+        <span class="text-slate-400">Aucun avis pour l'instant</span>
         <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">download</span>0</span>
       </div>
-      <a href="https://plugins.qgis.org/search/?q=LOMPO+Machine+Learning" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="view_sheet">Voir la fiche</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
+      <a href="https://plugins.qgis.org/search/?q=LOMPO+Machine+Learning" target="_blank" rel="noopener noreferrer" class="text-[13px] font-bold text-primary-container flex items-center gap-1">Voir la fiche <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
     </div>
   </div>
 
   <div class="mt-space-md">
-    <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="webgis_heading">Plateformes WebGIS</h2>
-    <p class="text-body-sm text-on-surface-variant mt-1" data-i18n="webgis_intro">Applications web de cartographie déployées en production.</p>
+    <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Plateformes WebGIS</h2>
+    <p class="text-body-sm text-on-surface-variant mt-1">Applications web de cartographie déployées en production.</p>
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
@@ -297,9 +288,9 @@
       </div>
       <div>
         <h3 class="font-bold text-[#1A1A1A]">WebSIG Ouagadougou</h3>
-        <p class="text-[13px] text-[#6B7280] mt-1" data-i18n="desc_ouaga">Système d'information géographique de la ville : cartographie, exploration et extraction de données spatiales.</p>
+        <p class="text-[13px] text-[#6B7280] mt-1">Système d'information géographique de la ville : cartographie, exploration et extraction de données spatiales.</p>
       </div>
-      <span class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="open_project">Ouvrir le projet</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></span>
+      <span class="text-[13px] font-bold text-primary-container flex items-center gap-1">Ouvrir le projet <span class="material-symbols-outlined text-[15px]">open_in_new</span></span>
     </a>
     <a href="https://doutchi-gis.vercel.app/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3 hover:-translate-y-0.5 transition-transform">
       <div class="w-full h-28 rounded-xl bg-gradient-to-br from-[#12B7D6] to-[#4dd7f7] flex items-center justify-center">
@@ -307,28 +298,28 @@
       </div>
       <div>
         <h3 class="font-bold text-[#1A1A1A]">Doutchi GIS</h3>
-        <p class="text-[13px] text-[#6B7280] mt-1" data-i18n="desc_doutchi">Plateforme SIG web de cartographie et d'exploration de données spatiales.</p>
+        <p class="text-[13px] text-[#6B7280] mt-1">Plateforme SIG web de cartographie et d'exploration de données spatiales.</p>
       </div>
-      <span class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="open_project">Ouvrir le projet</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></span>
+      <span class="text-[13px] font-bold text-primary-container flex items-center gap-1">Ouvrir le projet <span class="material-symbols-outlined text-[15px]">open_in_new</span></span>
     </a>
   </div>
 </section>
 
 <!-- ================= EXPERTISE ================= -->
 <section id="tab-expertise" data-tab-panel class="hidden flex flex-col gap-space-lg">
-  <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="expertise">Expertise</h2>
+  <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Expertise</h2>
 
   <div class="bg-white rounded-[20px] p-5 shadow-lg">
-    <h3 class="font-bold text-[#1A1A1A] mb-3" data-i18n="skills">Compétences</h3>
+    <h3 class="font-bold text-[#1A1A1A] mb-3">Compétences</h3>
     <div class="flex flex-wrap gap-2">
-      <span class="chip" data-i18n="chip_teledetection">Télédétection</span><span class="chip" data-i18n="chip_sigavance">SIG avancé</span><span class="chip" data-i18n="chip_collecte">Collecte de données terrain</span>
-      <span class="chip">Machine Learning</span><span class="chip" data-i18n="chip_automatisation">Automatisation</span><span class="chip">Python</span><span class="chip">Google Earth Engine</span>
-      <span class="chip" data-i18n="chip_bdd">Base de données</span><span class="chip" data-i18n="chip_geomarketing">Géomarketing</span><span class="chip" data-i18n="chip_ia">Intelligence artificielle</span>
+      <span class="chip">Télédétection</span><span class="chip">SIG avancé</span><span class="chip">Collecte de données terrain</span>
+      <span class="chip">Machine Learning</span><span class="chip">Automatisation</span><span class="chip">Python</span><span class="chip">Google Earth Engine</span>
+      <span class="chip">Base de données</span><span class="chip">Géomarketing</span><span class="chip">Intelligence artificielle</span>
     </div>
   </div>
 
   <div class="bg-white rounded-[20px] p-5 shadow-lg">
-    <h3 class="font-bold text-[#1A1A1A] mb-3" data-i18n="tools">Outils & logiciels</h3>
+    <h3 class="font-bold text-[#1A1A1A] mb-3">Outils & logiciels</h3>
     <div class="flex flex-wrap gap-2">
       <span class="chip">ArcGIS Desktop / Pro</span><span class="chip">QGIS</span><span class="chip">QField</span><span class="chip">ENVI</span>
       <span class="chip">ERDAS Imagine</span><span class="chip">KoboToolbox</span><span class="chip">Excel</span><span class="chip">Power BI</span>
@@ -337,132 +328,132 @@
   </div>
 
   <div class="bg-white rounded-[20px] p-5 shadow-lg">
-    <h3 class="font-bold text-[#1A1A1A] mb-3" data-i18n="cloud">Cloud & langages</h3>
+    <h3 class="font-bold text-[#1A1A1A] mb-3">Cloud & langages</h3>
     <div class="flex flex-wrap gap-2">
       <span class="chip">Python (Pandas, Scikit-learn)</span><span class="chip">AWS Cloud Foundations</span>
-      <span class="chip" data-i18n="chip_sql">SQL / Bases de données</span><span class="chip">R</span>
+      <span class="chip">SQL / Bases de données</span><span class="chip">R</span>
     </div>
   </div>
 
   <div class="bg-white rounded-[20px] p-5 shadow-lg">
-    <h3 class="font-bold text-[#1A1A1A] mb-3" data-i18n="webdev">Développement web</h3>
+    <h3 class="font-bold text-[#1A1A1A] mb-3">Développement web</h3>
     <div class="flex flex-wrap gap-2">
       <span class="chip">HTML, CSS, JavaScript</span><span class="chip">Tailwind CSS</span><span class="chip">Git & GitHub</span>
-      <span class="chip" data-i18n="chip_cartoweb">Cartographie web (Leaflet / MapLibre)</span><span class="chip">APIs REST</span><span class="chip">PostGIS</span>
+      <span class="chip">Cartographie web (Leaflet / MapLibre)</span><span class="chip">APIs REST</span><span class="chip">PostGIS</span>
     </div>
   </div>
 
   <div class="bg-white rounded-[20px] p-5 shadow-lg">
-    <h3 class="font-bold text-[#1A1A1A] mb-1 flex items-center gap-2"><span data-i18n="certs">Certifications & formations</span> <span class="chip">30+</span></h3>
+    <h3 class="font-bold text-[#1A1A1A] mb-1 flex items-center gap-2">Certifications & formations <span class="chip">30+</span></h3>
 
     <details open class="group border-t border-slate-100 pt-3">
       <summary class="flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-        <span class="text-[12px] font-bold text-[#1A1A1A]"><span data-i18n="cert_group_gis">SIG, télédétection & géomatique</span> <span class="text-[#9CA3AF] font-normal">(13)</span></span>
+        <span class="text-[12px] font-bold text-[#1A1A1A]">SIG, télédétection & géomatique <span class="text-[#9CA3AF] font-normal">(13)</span></span>
         <span class="material-symbols-outlined text-[18px] text-[#6B7280] transition-transform group-open:rotate-180">expand_more</span>
       </summary>
       <ul class="flex flex-col gap-2.5 text-[13px] text-[#374151] mt-3 mb-1">
-        <li class="flex items-center justify-between gap-2"><span>Performing Change Detection Using Raster Functions in ArcGIS Pro - Esri</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Classifying Objects Using Deep Learning in ArcGIS Pro - Esri</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Measuring Land-Cover Change Using ArcGIS Pro - Esri</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Getting Started with Spatial Analysis - Esri</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>ArcGIS Pro Basics - Esri</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>ArcGIS Online Basics - Esri</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Make an Impact with Modern Geo Apps - Esri</span><span class="chip shrink-0" data-date="2026-05">Mai 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Building an App in ArcGIS Online to Expand Food Access - Esri</span><span class="chip shrink-0" data-date="2026-05">Mai 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Using GIS to Solve Problems - Esri</span><span class="chip shrink-0" data-date="2026-04">Avr. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Performing Change Detection Using Raster Functions in ArcGIS Pro - Esri</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Classifying Objects Using Deep Learning in ArcGIS Pro - Esri</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Measuring Land-Cover Change Using ArcGIS Pro - Esri</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Getting Started with Spatial Analysis - Esri</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>ArcGIS Pro Basics - Esri</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>ArcGIS Online Basics - Esri</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Make an Impact with Modern Geo Apps - Esri</span><span class="chip shrink-0">Mai 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Building an App in ArcGIS Online to Expand Food Access - Esri</span><span class="chip shrink-0">Mai 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Using GIS to Solve Problems - Esri</span><span class="chip shrink-0">Avr. 2026</span></li>
         <li class="flex flex-col gap-0.5">
-          <div class="flex items-center justify-between gap-2"><span data-i18n="cert_drone">Télépilote, sous-catégories A1 et A3 - DGAC</span><span class="chip shrink-0" data-date="2026-04">Avr. 2026</span></div>
-          <span class="text-[10px] text-[#9CA3AF]" data-i18n="cert_expire_drone">Expire avr. 2031 - N° FRA-RP-000000145689</span>
+          <div class="flex items-center justify-between gap-2"><span>Télépilote, sous-catégories A1 et A3 - DGAC</span><span class="chip shrink-0">Avr. 2026</span></div>
+          <span class="text-[10px] text-[#9CA3AF]">Expire avr. 2031 - N° FRA-RP-000000145689</span>
         </li>
         <li class="flex flex-col gap-0.5">
-          <div class="flex items-center justify-between gap-2"><span data-i18n="cert_dea">Digital Earth Africa - Urbanisation</span><span class="chip shrink-0" data-date="2026-04">Avr. 2026</span></div>
-          <span class="text-[10px] text-[#9CA3AF]" data-i18n="cert_expire_dea">Expire avr. 2036 - Apprentissage automatique, télédétection</span>
+          <div class="flex items-center justify-between gap-2"><span>Digital Earth Africa - Urbanisation</span><span class="chip shrink-0">Avr. 2026</span></div>
+          <span class="text-[10px] text-[#9CA3AF]">Expire avr. 2036 - Apprentissage automatique, télédétection</span>
         </li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_cntig">Booster son employabilité par les sciences de la géoinformation - CNTIG (Côte d'Ivoire)</span><span class="chip shrink-0" data-date="2025-04">Avr. 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_fao">Surveillance des forêts et des terres pour l'action climatique (SEPAL) - FAO</span><span class="chip shrink-0" data-date="2025-03">Mars 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Booster son employabilité par les sciences de la géoinformation - CNTIG (Côte d'Ivoire)</span><span class="chip shrink-0">Avr. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Surveillance des forêts et des terres pour l'action climatique (SEPAL) - FAO</span><span class="chip shrink-0">Mars 2025</span></li>
       </ul>
     </details>
 
     <details class="group border-t border-slate-100 pt-3 mt-3">
       <summary class="flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-        <span class="text-[12px] font-bold text-[#1A1A1A]"><span data-i18n="cert_group_prog">Programmation, cloud & IA</span> <span class="text-[#9CA3AF] font-normal">(6)</span></span>
+        <span class="text-[12px] font-bold text-[#1A1A1A]">Programmation, cloud & IA <span class="text-[#9CA3AF] font-normal">(6)</span></span>
         <span class="material-symbols-outlined text-[18px] text-[#6B7280] transition-transform group-open:rotate-180">expand_more</span>
       </summary>
       <ul class="flex flex-col gap-2.5 text-[13px] text-[#374151] mt-3 mb-1">
-        <li class="flex items-center justify-between gap-2"><span>Python for Everyone - Esri</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_dww">Développement web niveau débutant - IFDD</span><span class="chip shrink-0" data-date="2026-07">Juil. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Python for Data Analyst - IBM</span><span class="chip shrink-0" data-date="2026-05">Mai 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span>AWS Academy Graduate - Cloud Foundations - AWS</span><span class="chip shrink-0" data-date="2026-04">Avr. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_ia">Découvrir les bases de l'IA - Microsoft</span><span class="chip shrink-0" data-date="2026-04">Avr. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_py_udemy">Formation complète en Python - Udemy</span><span class="chip shrink-0" data-date="2025-10">Oct. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Python for Everyone - Esri</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Développement web niveau débutant - IFDD</span><span class="chip shrink-0">Juil. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Python for Data Analyst - IBM</span><span class="chip shrink-0">Mai 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>AWS Academy Graduate - Cloud Foundations - AWS</span><span class="chip shrink-0">Avr. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Découvrir les bases de l'IA - Microsoft</span><span class="chip shrink-0">Avr. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Formation complète en Python - Udemy</span><span class="chip shrink-0">Oct. 2025</span></li>
       </ul>
     </details>
 
     <details class="group border-t border-slate-100 pt-3 mt-3">
       <summary class="flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-        <span class="text-[12px] font-bold text-[#1A1A1A]"><span data-i18n="cert_group_env">Environnement & foncier</span> <span class="text-[#9CA3AF] font-normal">(4)</span></span>
+        <span class="text-[12px] font-bold text-[#1A1A1A]">Environnement & foncier <span class="text-[#9CA3AF] font-normal">(4)</span></span>
         <span class="material-symbols-outlined text-[18px] text-[#6B7280] transition-transform group-open:rotate-180">expand_more</span>
       </summary>
       <ul class="flex flex-col gap-2.5 text-[13px] text-[#374151] mt-3 mb-1">
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_env1">Droit et protection de l'environnement - Univ. Senghor / OIF</span><span class="chip shrink-0" data-date="2026-04">Avr. 2026</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_env2">L'économie circulaire - Candriam</span><span class="chip shrink-0" data-date="2025-06">Juin 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_env3">Les villes et les changements climatiques - UNITAR</span><span class="chip shrink-0" data-date="2025-04">Avr. 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_env4">Foncier et développement - AFD</span><span class="chip shrink-0" data-date="2024-12">Déc. 2024</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Droit et protection de l'environnement - Univ. Senghor / OIF</span><span class="chip shrink-0">Avr. 2026</span></li>
+        <li class="flex items-center justify-between gap-2"><span>L'économie circulaire - Candriam</span><span class="chip shrink-0">Juin 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Les villes et les changements climatiques - UNITAR</span><span class="chip shrink-0">Avr. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Foncier et développement - AFD</span><span class="chip shrink-0">Déc. 2024</span></li>
       </ul>
     </details>
 
     <details class="group border-t border-slate-100 pt-3 mt-3">
       <summary class="flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-        <span class="text-[12px] font-bold text-[#1A1A1A]"><span data-i18n="cert_group_proj">Gestion de projet & engagement humanitaire</span> <span class="text-[#9CA3AF] font-normal">(8)</span></span>
+        <span class="text-[12px] font-bold text-[#1A1A1A]">Gestion de projet & engagement humanitaire <span class="text-[#9CA3AF] font-normal">(8)</span></span>
         <span class="material-symbols-outlined text-[18px] text-[#6B7280] transition-transform group-open:rotate-180">expand_more</span>
       </summary>
       <ul class="flex flex-col gap-2.5 text-[13px] text-[#374151] mt-3 mb-1">
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_pm1">Introduction à la gestion du cycle de projet - ITCILO</span><span class="chip shrink-0" data-date="2025-01">Janv. 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_pm2">Soutien initial aux survivant(e)s de VBG - UNICEF</span><span class="chip shrink-0" data-date="2025-01">Janv. 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Prevention of Sexual Exploitation and Abuse (PSEA) - UN Volunteers</span><span class="chip shrink-0" data-date="2025-04">Avr. 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span>Disability Inclusion - UN Volunteers</span><span class="chip shrink-0" data-date="2025-04">Avr. 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_pm5">Gestion de projet complet - Cursa</span><span class="chip shrink-0" data-date="2025-03">Mars 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_pm6">Le déplacement lié aux catastrophes - Humanitarian Leadership Academy</span><span class="chip shrink-0" data-date="2025-03">Mars 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_pm7">Inégalités de genre dans le secteur entrepreneurial - AFD</span><span class="chip shrink-0" data-date="2025-02">Févr. 2025</span></li>
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_pm8">Référentiel des compétences de l'entrepreneur - Univ. Joseph Ki-Zerbo</span><span class="chip shrink-0" data-date="2021-10">Oct. 2021</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Introduction à la gestion du cycle de projet - ITCILO</span><span class="chip shrink-0">Janv. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Soutien initial aux survivant(e)s de VBG - UNICEF</span><span class="chip shrink-0">Janv. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Prevention of Sexual Exploitation and Abuse (PSEA) - UN Volunteers</span><span class="chip shrink-0">Avr. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Disability Inclusion - UN Volunteers</span><span class="chip shrink-0">Avr. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Gestion de projet complet - Cursa</span><span class="chip shrink-0">Mars 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Le déplacement lié aux catastrophes - Humanitarian Leadership Academy</span><span class="chip shrink-0">Mars 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Inégalités de genre dans le secteur entrepreneurial - AFD</span><span class="chip shrink-0">Févr. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Référentiel des compétences de l'entrepreneur - Univ. Joseph Ki-Zerbo</span><span class="chip shrink-0">Oct. 2021</span></li>
       </ul>
     </details>
 
     <details class="group border-t border-slate-100 pt-3 mt-3">
       <summary class="flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-        <span class="text-[12px] font-bold text-[#1A1A1A]"><span data-i18n="cert_group_lang">Langues</span> <span class="text-[#9CA3AF] font-normal">(1)</span></span>
+        <span class="text-[12px] font-bold text-[#1A1A1A]">Langues <span class="text-[#9CA3AF] font-normal">(1)</span></span>
         <span class="material-symbols-outlined text-[18px] text-[#6B7280] transition-transform group-open:rotate-180">expand_more</span>
       </summary>
       <ul class="flex flex-col gap-2.5 text-[13px] text-[#374151] mt-3 mb-1">
-        <li class="flex items-center justify-between gap-2"><span data-i18n="cert_lang1">Anglais élémentaire A2 - Cursa</span><span class="chip shrink-0" data-date="2025-04">Avr. 2025</span></li>
+        <li class="flex items-center justify-between gap-2"><span>Anglais élémentaire A2 - Cursa</span><span class="chip shrink-0">Avr. 2025</span></li>
       </ul>
     </details>
   </div>
 
   <div class="bg-white rounded-[20px] p-5 shadow-lg">
-    <h3 class="font-bold text-[#1A1A1A] mb-3" data-i18n="languages_h3">Langues</h3>
+    <h3 class="font-bold text-[#1A1A1A] mb-3">Langues</h3>
     <div class="flex flex-wrap gap-2">
-      <span class="chip" data-i18n="chip_lang_fr">Français - langue maternelle</span><span class="chip" data-i18n="chip_lang_en">Anglais - intermédiaire</span>
+      <span class="chip">Français - langue maternelle</span><span class="chip">Anglais - intermédiaire</span>
     </div>
   </div>
 </section>
 
 <!-- ================= PARCOURS ================= -->
 <section id="tab-parcours" data-tab-panel class="hidden flex flex-col gap-space-lg">
-  <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="parcours">Parcours</h2>
+  <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Parcours</h2>
 
   <div>
-    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3" data-i18n="exp_heading">Expérience professionnelle</h3>
+    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3">Expérience professionnelle</h3>
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-5">
 
       <div class="flex gap-3">
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">work</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="job1_title">Cartographe indépendant</span>
-            <span class="chip" data-date-start="2022-12" data-date-end="present">Déc. 2022 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Cartographe indépendant</span>
+            <span class="chip">Déc. 2022 - présent</span>
           </div>
-          <p class="text-[12px] text-[#6B7280] mt-1" data-i18n="job1_desc">Croquis terrain pour particuliers, collecte de données et analyses spatiales, réalisation de cartes d'études et automatisation des flux cartographiques.</p>
+          <p class="text-[12px] text-[#6B7280] mt-1">Croquis terrain pour particuliers, collecte de données et analyses spatiales, réalisation de cartes d'études et automatisation des flux cartographiques.</p>
         </div>
       </div>
 
@@ -470,10 +461,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">groups</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="job2_title">Chef de projet - Association Espérance Cledan</span>
-            <span class="chip" data-date-start="2025-03" data-date-end="present">Mars 2025 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Chef de projet - Association Espérance Cledan</span>
+            <span class="chip">Mars 2025 - présent</span>
           </div>
-          <p class="text-[12px] text-[#6B7280] mt-1" data-i18n="job2_desc">Planification et coordination des activités de terrain, animation d'équipes, rédaction des rapports d'activités.</p>
+          <p class="text-[12px] text-[#6B7280] mt-1">Planification et coordination des activités de terrain, animation d'équipes, rédaction des rapports d'activités.</p>
         </div>
       </div>
 
@@ -481,10 +472,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">location_city</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="job3_title">Stagiaire en urbanisme - Mairie de Fada N'Gourma</span>
-            <span class="chip" data-date-start="2023-09" data-date-end="2023-12">Sept. - Déc. 2023</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Stagiaire en urbanisme - Mairie de Fada N'Gourma</span>
+            <span class="chip">Sept. - Déc. 2023</span>
           </div>
-          <p class="text-[12px] text-[#6B7280] mt-1" data-i18n="job3_desc">Collecte des données foncières, réalisation de cartes thématiques, mise à jour du système d'information foncière municipal.</p>
+          <p class="text-[12px] text-[#6B7280] mt-1">Collecte des données foncières, réalisation de cartes thématiques, mise à jour du système d'information foncière municipal.</p>
         </div>
       </div>
 
@@ -492,17 +483,17 @@
   </div>
 
   <div>
-    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3" data-i18n="vol_heading">Engagement associatif & bénévolat</h3>
+    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3">Engagement associatif & bénévolat</h3>
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-5">
 
       <div class="flex gap-3">
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">volunteer_activism</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol1_title">Bénévole - SUUDU ANDAL</span>
-            <span class="chip" data-date-start="2025-01" data-date-end="present">Janv. 2025 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Bénévole - SUUDU ANDAL</span>
+            <span class="chip">Janv. 2025 - présent</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol1_dur">1 an 9 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">1 an 9 mois</p>
         </div>
       </div>
 
@@ -510,10 +501,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">volunteer_activism</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol2_title">Volontaire FONIP - AIPJE-Association</span>
-            <span class="chip" data-date="2025-05">Mai 2025</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Volontaire FONIP - AIPJE-Association</span>
+            <span class="chip">Mai 2025</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol2_dur">1 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">1 mois</p>
         </div>
       </div>
 
@@ -521,10 +512,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">groups</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol3_title">Membre - Centre Burkinabè des Débats et des Plaidoyers</span>
-            <span class="chip" data-date-start="2025-05" data-date-end="present">Mai 2025 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Membre - Centre Burkinabè des Débats et des Plaidoyers</span>
+            <span class="chip">Mai 2025 - présent</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol3_dur">1 an 5 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">1 an 5 mois</p>
         </div>
       </div>
 
@@ -532,10 +523,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">campaign</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol4_title">VNU en ligne - Mobilisation et sensibilisation numérique contre les VBG - UNICEF</span>
-            <span class="chip" data-date-start="2025-07" data-date-end="2025-12">Juil. - Déc. 2025</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">VNU en ligne - Mobilisation et sensibilisation numérique contre les VBG - UNICEF</span>
+            <span class="chip">Juil. - Déc. 2025</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol4_dur">6 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">6 mois</p>
         </div>
       </div>
 
@@ -543,10 +534,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">campaign</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol5_title">Relais de communication - PNUD Côte d'Ivoire</span>
-            <span class="chip" data-date-start="2025-07" data-date-end="present">Juil. 2025 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Relais de communication - PNUD Côte d'Ivoire</span>
+            <span class="chip">Juil. 2025 - présent</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol5_dur">1 an 3 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">1 an 3 mois</p>
         </div>
       </div>
 
@@ -554,7 +545,7 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">campaign</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol6_title">Campagne de sensibilisation : promouvoir le droit à la santé pour chaque enfant - UNICEF Niger</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Campagne de sensibilisation : promouvoir le droit à la santé pour chaque enfant - UNICEF Niger</span>
           </div>
         </div>
       </div>
@@ -563,10 +554,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">campaign</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol7_title">Campagne digitale JMS - OMS Rép. Centrafricaine</span>
-            <span class="chip" data-date-start="2025-04" data-date-end="present">Avr. 2025 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Campagne digitale JMS - OMS Rép. Centrafricaine</span>
+            <span class="chip">Avr. 2025 - présent</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol7_dur">1 an 6 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">1 an 6 mois</p>
         </div>
       </div>
 
@@ -574,10 +565,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">handshake</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol8_title">Ambassadeur de la Paix - Association Peace Initiatives (API)</span>
-            <span class="chip" data-date-start="2025-04" data-date-end="present">Avr. 2025 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Ambassadeur de la Paix - Association Peace Initiatives (API)</span>
+            <span class="chip">Avr. 2025 - présent</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol8_dur">1 an 6 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">1 an 6 mois</p>
         </div>
       </div>
 
@@ -585,10 +576,10 @@
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">campaign</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="vol9_title">Sensibilisation Journée mondiale de la Santé - OMS Tchad</span>
-            <span class="chip" data-date-start="2025-04" data-date-end="present">Avr. 2025 - présent</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Sensibilisation Journée mondiale de la Santé - OMS Tchad</span>
+            <span class="chip">Avr. 2025 - présent</span>
           </div>
-          <p class="text-[11px] text-[#9CA3AF] mt-0.5" data-i18n="vol9_dur">1 an 6 mois</p>
+          <p class="text-[11px] text-[#9CA3AF] mt-0.5">1 an 6 mois</p>
         </div>
       </div>
 
@@ -596,7 +587,7 @@
   </div>
 
   <div>
-    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3" data-i18n="research_heading">Recherche</h3>
+    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3">Recherche</h3>
 
     <div class="flex flex-col gap-space-md">
 
@@ -606,14 +597,14 @@
           <div class="flex items-start gap-3">
             <div class="w-9 h-9 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[18px]">recycling</span></div>
             <div>
-              <h4 class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="res1_title">Approche géospatiale pour l'optimisation de la localisation des centres de collecte des déchets solides à Ouagadougou</h4>
-              <p class="text-[11px] text-[#6B7280] mt-0.5"><span data-i18n="res1_sub">Mémoire de Master professionnel - AFRIGIST, Nigeria</span> <span data-date="2026-08"></span></p>
+              <h4 class="font-bold text-[13px] text-[#1A1A1A]">Approche géospatiale pour l'optimisation de la localisation des centres de collecte des déchets solides à Ouagadougou</h4>
+              <p class="text-[11px] text-[#6B7280] mt-0.5">Mémoire de Master professionnel - AFRIGIST, Nigeria - Août 2026</p>
             </div>
           </div>
-          <span class="chip shrink-0" data-i18n="res1_chip">Diplômant</span>
+          <span class="chip shrink-0">Diplômant</span>
         </div>
-        <p class="text-[13px] text-[#374151]" data-i18n="res1_desc">SIG, analyse de réseau, AHP, combinaison linéaire pondérée, modèle de couverture maximale (MCLP) et solveur VRP (ArcGIS Pro Network Analyst). Les 50 centres existants ne couvrent que 7,65 % de la population (194 500 / 2 542 641 hab.) ; l'analyse multicritère identifie 1 207 sites candidats sur 120,92 km² ; le MCLP sélectionne 10 nouveaux centres portant la couverture à 41,30 % (+33,65 points) ; itinéraires de collecte optimisés par VRP.</p>
-        <a href="assets/Memoire_Master_Optimisation_Collecte_Dechets_Ouagadougou.pdf" target="_blank" class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="res1_link">Voir le mémoire (PDF)</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
+        <p class="text-[13px] text-[#374151]">SIG, analyse de réseau, AHP, combinaison linéaire pondérée, modèle de couverture maximale (MCLP) et solveur VRP (ArcGIS Pro Network Analyst). Les 50 centres existants ne couvrent que 7,65 % de la population (194 500 / 2 542 641 hab.) ; l'analyse multicritère identifie 1 207 sites candidats sur 120,92 km² ; le MCLP sélectionne 10 nouveaux centres portant la couverture à 41,30 % (+33,65 points) ; itinéraires de collecte optimisés par VRP.</p>
+        <a href="assets/Memoire_Master_Optimisation_Collecte_Dechets_Ouagadougou.pdf" target="_blank" class="text-[13px] font-bold text-primary-container flex items-center gap-1">Voir le mémoire (PDF) <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
       </div>
 
       <!-- 2. Poster scientifique -->
@@ -621,12 +612,12 @@
         <div class="flex items-start gap-3">
           <div class="w-9 h-9 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[18px]">science</span></div>
           <div>
-            <h4 class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="res2_title">Analyse spatiale du potentiel de fertilité des sols de la commune de Gaoua</h4>
-            <p class="text-[11px] text-[#6B7280] mt-0.5"><span data-i18n="res2_sub">Poster scientifique - AFRIGIST, Nigeria</span> <span data-date="2026-06"></span></p>
+            <h4 class="font-bold text-[13px] text-[#1A1A1A]">Analyse spatiale du potentiel de fertilité des sols de la commune de Gaoua</h4>
+            <p class="text-[11px] text-[#6B7280] mt-0.5">Poster scientifique - AFRIGIST, Nigeria - Juin 2026</p>
           </div>
         </div>
-        <p class="text-[13px] text-[#374151]" data-i18n="res2_desc">Couplage de l'indice SAVI (Landsat 8, 2015-2025) et de paramètres topographiques (MNT SRTM 30 m) via une analyse multicritère AHP pondérée (SAVI 60 %, pente 30 %, altitude 10 %). Couvert végétal stable sur 84,07 % de la zone ; carte de potentiel dominée par les classes moyenne (48,99 %) et faible (47,80 %), forte fertilité concentrée dans les bas-fonds (1,69 %).</p>
-        <a href="assets/Poster_LOMPO_Ibrahim.pdf" target="_blank" class="text-[13px] font-bold text-primary-container flex items-center gap-1"><span data-i18n="res2_link">Voir le poster (PDF)</span> <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
+        <p class="text-[13px] text-[#374151]">Couplage de l'indice SAVI (Landsat 8, 2015-2025) et de paramètres topographiques (MNT SRTM 30 m) via une analyse multicritère AHP pondérée (SAVI 60 %, pente 30 %, altitude 10 %). Couvert végétal stable sur 84,07 % de la zone ; carte de potentiel dominée par les classes moyenne (48,99 %) et faible (47,80 %), forte fertilité concentrée dans les bas-fonds (1,69 %).</p>
+        <a href="assets/Poster_LOMPO_Ibrahim.pdf" target="_blank" class="text-[13px] font-bold text-primary-container flex items-center gap-1">Voir le poster (PDF) <span class="material-symbols-outlined text-[15px]">open_in_new</span></a>
       </div>
 
       <!-- 3. Rapport de Licence -->
@@ -634,37 +625,37 @@
         <div class="flex items-start gap-3">
           <div class="w-9 h-9 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[18px]">agriculture</span></div>
           <div>
-            <h4 class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="res3_title">Impacts de l'insécurité foncière sur la sécurité alimentaire dans la commune de Fada N'Gourma</h4>
-            <p class="text-[11px] text-[#6B7280] mt-0.5" data-i18n="res3_sub">Rapport de fin de cycle, Licence pro. ADDT - Centre Universitaire de Ziniaré - 2022-2023</p>
+            <h4 class="font-bold text-[13px] text-[#1A1A1A]">Impacts de l'insécurité foncière sur la sécurité alimentaire dans la commune de Fada N'Gourma</h4>
+            <p class="text-[11px] text-[#6B7280] mt-0.5">Rapport de fin de cycle, Licence pro. ADDT - Centre Universitaire de Ziniaré - 2022-2023</p>
           </div>
         </div>
-        <p class="text-[13px] text-[#374151]" data-i18n="res3_desc">Enquêtes de terrain (60 répondants) et entretiens avec 7 personnes ressources. L'insécurité foncière (accaparement des terres, conflits fonciers) limite les capacités de production et d'accès aux denrées des ménages ; identification de stratégies d'adaptation institutionnelles, communautaires et individuelles. Travail directement lié au stage en urbanisme à la Mairie de Fada N'Gourma.</p>
+        <p class="text-[13px] text-[#374151]">Enquêtes de terrain (60 répondants) et entretiens avec 7 personnes ressources. L'insécurité foncière (accaparement des terres, conflits fonciers) limite les capacités de production et d'accès aux denrées des ménages ; identification de stratégies d'adaptation institutionnelles, communautaires et individuelles. Travail directement lié au stage en urbanisme à la Mairie de Fada N'Gourma.</p>
       </div>
 
     </div>
   </div>
 
   <div>
-    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3" data-i18n="edu_heading">Formation</h3>
+    <h3 class="font-label-md text-label-md text-primary uppercase tracking-wide mb-3">Formation</h3>
     <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-5">
       <div class="flex gap-3">
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">school</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="edu1_title">Master pro. Production et Gestion de l'Information Géospatiale</span>
-            <span class="chip" data-date-start="2025-09" data-date-end="2026-08">Sept. 2025 - Août 2026</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Master pro. Production et Gestion de l'Information Géospatiale</span>
+            <span class="chip">Sept. 2025 - Août 2026</span>
           </div>
-          <p class="text-[12px] text-[#6B7280] mt-1" data-i18n="edu1_place">African Regional Institute for Geospatial Information Science and Technology (AFRIGIST), Nigeria</p>
+          <p class="text-[12px] text-[#6B7280] mt-1">African Regional Institute for Geospatial Information Science and Technology (AFRIGIST), Nigeria</p>
         </div>
       </div>
       <div class="flex gap-3">
         <div class="w-8 h-8 rounded-full bg-[#E0F7FA] text-[#00838F] flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-[16px]">school</span></div>
         <div class="flex-1">
           <div class="flex items-center justify-between flex-wrap gap-1">
-            <span class="font-bold text-[13px] text-[#1A1A1A]" data-i18n="edu2_title">Licence Aménagement et Développement Durable du Territoire</span>
-            <span class="chip" data-date-start="2020-10" data-date-end="2024-07">Oct. 2020 - Juil. 2024</span>
+            <span class="font-bold text-[13px] text-[#1A1A1A]">Licence Aménagement et Développement Durable du Territoire</span>
+            <span class="chip">Oct. 2020 - Juil. 2024</span>
           </div>
-          <p class="text-[12px] text-[#6B7280] mt-1" data-i18n="edu2_place">Centre Universitaire de Ziniaré, Burkina Faso</p>
+          <p class="text-[12px] text-[#6B7280] mt-1">Centre Universitaire de Ziniaré, Burkina Faso</p>
         </div>
       </div>
     </div>
@@ -673,12 +664,12 @@
 
 <!-- ================= CONTACT ================= -->
 <section id="tab-contact" data-tab-panel class="hidden flex flex-col gap-space-lg">
-  <h2 class="font-headline-md text-headline-md text-on-surface font-bold" data-i18n="contact">Contact</h2>
+  <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Contact</h2>
 
   <div class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3">
     <a href="mailto:Ibrahimlompo33@gmail.com" class="flex items-center gap-3 text-[#1A1A1A]">
       <div class="w-9 h-9 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">mail</span></div>
-      <span class="text-[14px] font-medium min-w-0 break-words">Ibrahimlompo33@gmail.com</span>
+      <span class="text-[14px] font-medium">Ibrahimlompo33@gmail.com</span>
     </a>
     <a href="tel:+22664095443" class="flex items-center gap-3 text-[#1A1A1A]">
       <div class="w-9 h-9 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">call</span></div>
@@ -690,58 +681,57 @@
     </div>
     <a href="https://github.com/ibrahimlompo33-coder/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-[#1A1A1A]">
       <div class="w-9 h-9 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">code</span></div>
-      <span class="text-[14px] font-medium min-w-0 break-words">github.com/ibrahimlompo33-coder</span>
+      <span class="text-[14px] font-medium">github.com/ibrahimlompo33-coder</span>
     </a>
     <a href="https://www.linkedin.com/in/ibrahim-lompo-438a7421a" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-[#1A1A1A]">
       <div class="w-9 h-9 rounded-xl bg-[#E0F7FA] text-[#00838F] flex items-center justify-center">
         <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg>
       </div>
-      <span class="text-[14px] font-medium min-w-0 break-words">linkedin.com/in/ibrahim-lompo-438a7421a</span>
+      <span class="text-[14px] font-medium">linkedin.com/in/ibrahim-lompo-438a7421a</span>
     </a>
   </div>
 
   <form id="contact-form" class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3" onsubmit="return sendViaMail(event)">
     <div>
-      <label class="text-[12px] font-bold text-[#374151]" for="cf-name" data-i18n="cf_name">Nom</label>
+      <label class="text-[12px] font-bold text-[#374151]" for="cf-name">Nom</label>
       <input id="cf-name" name="name" required class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-primary"/>
     </div>
     <div>
-      <label class="text-[12px] font-bold text-[#374151]" for="cf-email" data-i18n="cf_email">Email</label>
+      <label class="text-[12px] font-bold text-[#374151]" for="cf-email">Email</label>
       <input id="cf-email" name="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-primary"/>
     </div>
     <div>
-      <label class="text-[12px] font-bold text-[#374151]" for="cf-message" data-i18n="cf_msg">Message</label>
+      <label class="text-[12px] font-bold text-[#374151]" for="cf-message">Message</label>
       <textarea id="cf-message" name="message" required rows="4" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
     </div>
     <button type="submit" class="mt-1 flex items-center justify-center gap-1.5 py-3 px-space-md rounded-2xl bg-gradient-to-r from-[#12B7D6] to-[#00D2EE] text-[#0A0E17] font-label-md text-label-md font-bold shadow-[0_8px_20px_-4px_rgba(18,183,214,0.5)] active:scale-95 transition-transform duration-150">
-      <span class="material-symbols-outlined text-[19px]">send</span><span data-i18n="cf_send">Envoyer</span>
+      <span class="material-symbols-outlined text-[19px]">send</span><span>Envoyer</span>
     </button>
   </form>
 </section>
 
 </main>
 
-<nav class="sticky bottom-0 z-50 w-full shrink-0 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-10px_30px_rgba(0,0,0,0.6)]">
+<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-10px_30px_rgba(0,0,0,0.6)]">
   <div class="flex justify-around items-center h-16 px-space-xs max-w-2xl mx-auto" id="bottom-nav">
     <button data-path="accueil" onclick="showTab('accueil')" class="nav-btn flex flex-col items-center justify-center gap-space-xs min-w-[52px] h-12 transition-colors text-primary font-semibold">
-      <span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-[11px] leading-tight" data-i18n="nav_accueil">Accueil</span>
+      <span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-[11px] leading-tight">Accueil</span>
     </button>
     <button data-path="projets" onclick="showTab('projets')" class="nav-btn flex flex-col items-center justify-center gap-space-xs min-w-[52px] h-12 text-on-surface-variant hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-[22px]">layers</span><span class="font-label-sm text-[11px] leading-tight" data-i18n="nav_projets">Projets</span>
+      <span class="material-symbols-outlined text-[22px]">layers</span><span class="font-label-sm text-[11px] leading-tight">Projets</span>
     </button>
     <button data-path="expertise" onclick="showTab('expertise')" class="nav-btn flex flex-col items-center justify-center gap-space-xs min-w-[52px] h-12 text-on-surface-variant hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-[22px]">terminal</span><span class="font-label-sm text-[11px] leading-tight" data-i18n="nav_expertise">Expertise</span>
+      <span class="material-symbols-outlined text-[22px]">terminal</span><span class="font-label-sm text-[11px] leading-tight">Expertise</span>
     </button>
     <button data-path="parcours" onclick="showTab('parcours')" class="nav-btn flex flex-col items-center justify-center gap-space-xs min-w-[52px] h-12 text-on-surface-variant hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-[22px]">timeline</span><span class="font-label-sm text-[11px] leading-tight" data-i18n="nav_parcours">Parcours</span>
+      <span class="material-symbols-outlined text-[22px]">timeline</span><span class="font-label-sm text-[11px] leading-tight">Parcours</span>
     </button>
     <button data-path="contact" onclick="showTab('contact')" class="nav-btn flex flex-col items-center justify-center gap-space-xs min-w-[52px] h-12 text-on-surface-variant hover:text-primary transition-colors">
-      <span class="material-symbols-outlined text-[22px]">send</span><span class="font-label-sm text-[11px] leading-tight" data-i18n="nav_contact">Contact</span>
+      <span class="material-symbols-outlined text-[22px]">send</span><span class="font-label-sm text-[11px] leading-tight">Contact</span>
     </button>
   </div>
 </nav>
 
-<script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 
 </body>
