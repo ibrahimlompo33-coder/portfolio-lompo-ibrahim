@@ -39,6 +39,9 @@ img,video,iframe{max-width:100%;height:auto;}
   .deco-back{transform:translateX(20px) translateY(6px) rotate(5deg) scale(0.9);}
   .deco-mid{transform:translateX(10px) translateY(3px) rotate(2.5deg) scale(0.95);}
 }
+@media (max-width:639px){
+  #contact-form input,#contact-form textarea{font-size:16px;}
+}
 button,a{touch-action:manipulation;}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;}
