@@ -700,7 +700,7 @@
     </a>
   </div>
 
-  <form id="contact-form" class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3" onsubmit="return sendViaMail(event)">
+  <form id="contact-form" class="bg-white rounded-[20px] p-5 shadow-lg flex flex-col gap-3" onsubmit="return sendRequest(event)">
     <div>
       <label class="text-[12px] font-bold text-[#374151]" for="cf-name">Nom</label>
       <input id="cf-name" name="name" required class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-primary"/>
@@ -710,12 +710,40 @@
       <input id="cf-email" name="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-primary"/>
     </div>
     <div>
+      <label class="text-[12px] font-bold text-[#374151]" for="cf-project">Type de projet</label>
+      <select id="cf-project" name="projectType" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] bg-white focus:outline-none focus:ring-2 focus:ring-primary">
+        <option value="Cartographie / SIG">Cartographie / SIG</option>
+        <option value="Teledetection / imagerie">Teledetection / imagerie</option>
+        <option value="WebGIS / application web">WebGIS / application web</option>
+        <option value="Automatisation / script">Automatisation / script</option>
+        <option value="Plugin QGIS">Plugin QGIS</option>
+        <option value="Formation / perfectionnement">Formation / perfectionnement</option>
+        <option value="Autre">Autre</option>
+      </select>
+    </div>
+    <div>
+      <label class="text-[12px] font-bold text-[#374151]" for="cf-budget">Budget indicatif</label>
+      <select id="cf-budget" name="budget" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] bg-white focus:outline-none focus:ring-2 focus:ring-primary">
+        <option value="A definir">A definir</option>
+        <option value="Moins de 500 000 FCFA">Moins de 500 000 FCFA</option>
+        <option value="500 000 - 2 000 000 FCFA">500 000 - 2 000 000 FCFA</option>
+        <option value="2 000 000 - 5 000 000 FCFA">2 000 000 - 5 000 000 FCFA</option>
+        <option value="Plus de 5 000 000 FCFA">Plus de 5 000 000 FCFA</option>
+      </select>
+    </div>
+    <div>
       <label class="text-[12px] font-bold text-[#374151]" for="cf-message">Message</label>
       <textarea id="cf-message" name="message" required rows="4" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-[14px] text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
     </div>
-    <button type="submit" class="mt-1 flex items-center justify-center gap-1.5 py-3 px-space-md rounded-2xl bg-gradient-to-r from-[#12B7D6] to-[#00D2EE] text-[#0A0E17] font-label-md text-label-md font-bold shadow-[0_8px_20px_-4px_rgba(18,183,214,0.5)] active:scale-95 transition-transform duration-150">
-      <span class="material-symbols-outlined text-[19px]">send</span><span>Envoyer</span>
+    <div class="hidden" aria-hidden="true">
+      <label for="cf-company">Ne pas remplir</label>
+      <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off"/>
+    </div>
+    <div id="form-status" class="hidden text-[13px] font-semibold rounded-xl px-3 py-2.5" role="status" aria-live="polite"></div>
+    <button id="cf-submit" type="submit" class="mt-1 flex items-center justify-center gap-1.5 py-3 px-space-md rounded-2xl bg-gradient-to-r from-[#12B7D6] to-[#00D2EE] text-[#0A0E17] font-label-md text-label-md font-bold shadow-[0_8px_20px_-4px_rgba(18,183,214,0.5)] active:scale-95 transition-transform duration-150">
+      <span class="material-symbols-outlined text-[19px]">send</span><span>Envoyer la demande</span>
     </button>
+    <p class="text-[11px] text-[#9CA3AF] text-center">Demande envoyee directement sur le serveur, sans ouvrir votre application mail.</p>
   </form>
 </section>
 
