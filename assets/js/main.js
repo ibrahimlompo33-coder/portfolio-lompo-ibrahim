@@ -34,11 +34,11 @@ window.addEventListener('resize', function(){
   if(window.innerWidth >= 640) setMenuOpen(false);
 });
 
-function showTab(name){
-  setMenuOpen(false);
-  document.querySelectorAll('[data-tab-panel]').forEach(function(sec){
-    sec.classList.toggle('hidden', sec.id !== 'tab-' + name);
-  });
+function menuLabelFor(tab){
+  return { accueil:'Accueil', projets:'Projets', expertise:'Expertise', parcours:'Parcours', contact:'Contact' }[tab];
+}
+
+function setActiveTab(name){
   document.querySelectorAll('.nav-btn').forEach(function(btn){
     var active = btn.getAttribute('data-path') === name;
     btn.classList.toggle('text-primary', active);
@@ -50,11 +50,29 @@ function showTab(name){
     var label = item.textContent.trim();
     item.classList.toggle('text-primary', label === menuLabelFor(name));
   });
-  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-function menuLabelFor(tab){
-  return { accueil:'Accueil', projets:'Projets', expertise:'Expertise', parcours:'Parcours', contact:'Contact' }[tab];
+function showTab(name){
+  setMenuOpen(false);
+  setActiveTab(name);
+  var target = document.getElementById('tab-' + name);
+  if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+var spyObserver = null;
+function initScrollSpy(){
+  if(!('IntersectionObserver' in window)) return;
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[data-tab-panel]'));
+  if(!panels.length) return;
+  if(spyObserver) spyObserver.disconnect();
+  spyObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        setActiveTab(entry.target.id.replace('tab-', ''));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  panels.forEach(function(p){ spyObserver.observe(p); });
 }
 
 function setFormStatus(msg, kind){
@@ -139,4 +157,5 @@ function sendRequest(e){
 }
 
 // État initial
-showTab('accueil');
+setActiveTab('accueil');
+initScrollSpy();
