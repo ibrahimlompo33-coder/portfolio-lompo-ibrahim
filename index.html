@@ -69,16 +69,52 @@
 
 <header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]">
   <div class="h-16 px-gutter-mobile max-w-2xl mx-auto flex items-center justify-between">
-    <div class="flex items-center gap-space-sm">
-      <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+    <button id="menu-btn" type="button" onclick="toggleMenu()" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Ouvrir le menu" class="w-10 h-10 mr-2 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center shrink-0 sm:hidden">
+      <span id="menu-icon" class="material-symbols-outlined text-[22px]">menu</span>
+    </button>
+    <div class="flex items-center gap-space-sm min-w-0">
+      <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center shrink-0">
         <span class="font-headline-sm text-headline-sm text-primary tracking-tight">LI</span>
       </div>
-      <div class="flex flex-col">
-        <span class="font-label-md text-label-md text-on-surface tracking-tight leading-none">LOMPO Ibrahim</span>
-        <span class="font-label-sm text-label-sm text-primary tracking-wider">Géomaticien - SIG, WebSIG & ML</span>
+      <div class="flex flex-col min-w-0">
+        <span class="font-label-md text-label-md text-on-surface tracking-tight leading-none truncate">LOMPO Ibrahim</span>
+        <span class="font-label-sm text-label-sm text-primary tracking-wider truncate">Géomaticien - SIG, WebSIG & ML</span>
       </div>
     </div>
-    <button onclick="showTab('contact')" class="hidden sm:flex items-center justify-center px-space-md py-space-xs rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Contact</button>
+    <button onclick="showTab('contact')" class="hidden sm:flex items-center justify-center px-space-md py-space-xs rounded-full bg-primary/10 text-primary font-label-sm text-label-sm shrink-0">Contact</button>
+  </div>
+
+  <div id="dropdown-menu" class="sm:hidden overflow-hidden max-h-0 transition-[max-height] duration-300 ease-out bg-surface-container-lowest/95 backdrop-blur-xl border-t border-white/5">
+    <nav class="px-gutter-mobile py-2 max-w-2xl mx-auto flex flex-col" aria-label="Menu principal">
+      <button onclick="showTab('accueil')" data-menu-item class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-left text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">dashboard</span><span class="font-label-md text-label-md">Accueil</span>
+      </button>
+      <button onclick="showTab('projets')" data-menu-item class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-left text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">layers</span><span class="font-label-md text-label-md">Projets</span>
+      </button>
+      <button onclick="showTab('expertise')" data-menu-item class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-left text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">terminal</span><span class="font-label-md text-label-md">Expertise</span>
+      </button>
+      <button onclick="showTab('parcours')" data-menu-item class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-left text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">timeline</span><span class="font-label-md text-label-md">Parcours</span>
+      </button>
+      <button onclick="showTab('contact')" data-menu-item class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-left text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">send</span><span class="font-label-md text-label-md">Contact</span>
+      </button>
+      <div class="my-2 h-px bg-surface-container-high"></div>
+      <a href="https://wa.me/22664095443?text=Bonjour%20Ibrahim%2C%20je%20vous%20contacte%20depuis%20votre%20portfolio." target="_blank" rel="noopener noreferrer" class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="w-6 h-6 rounded-md bg-[#25D366] flex items-center justify-center shrink-0"><svg class="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></span><span class="font-label-md text-label-md">WhatsApp</span>
+      </a>
+      <a href="mailto:Ibrahimlompo33@gmail.com" class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="w-6 h-6 rounded-md bg-[#EA4335] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[14px] text-white">mail</span></span><span class="font-label-md text-label-md">Email</span>
+      </a>
+      <a href="https://github.com/ibrahimlompo33-coder/" target="_blank" rel="noopener noreferrer" class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="w-6 h-6 rounded-md bg-[#24292F] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[14px] text-white">code</span></span><span class="font-label-md text-label-md">GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/ibrahim-lompo-438a7421a" target="_blank" rel="noopener noreferrer" class="menu-item flex items-center gap-3 px-3 py-3 rounded-xl text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="w-6 h-6 rounded-md bg-[#0A66C2] flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[14px] text-white">work</span></span><span class="font-label-md text-label-md">LinkedIn</span>
+      </a>
+    </nav>
   </div>
 </header>
 

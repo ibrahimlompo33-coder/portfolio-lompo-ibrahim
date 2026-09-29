@@ -8,6 +8,7 @@
 main{padding-top:5rem;padding-bottom:4rem;}
 main{padding-top:calc(5rem + env(safe-area-inset-top,0px));padding-bottom:calc(4rem + env(safe-area-inset-bottom,0px));}
 ::-webkit-scrollbar{display:none;}
+#dropdown-menu.is-open{max-height:70vh;overflow-y:auto;}
 [data-tab-panel].hidden{display:none;}
 .chip{display:inline-flex;align-items:center;padding:0.35rem 0.75rem;border-radius:9999px;background:#E0F7FA;color:#00707F;font-size:12px;font-weight:600;}
 .star{color:#F5A623;}

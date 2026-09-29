@@ -1,4 +1,41 @@
+function isMenuOpen(){
+  var menu = document.getElementById('dropdown-menu');
+  return !!menu && menu.classList.contains('is-open');
+}
+
+function setMenuOpen(open){
+  var menu = document.getElementById('dropdown-menu');
+  var btn = document.getElementById('menu-btn');
+  var icon = document.getElementById('menu-icon');
+  if(!menu) return;
+  menu.classList.toggle('is-open', open);
+  if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(icon) icon.textContent = open ? 'close' : 'menu';
+}
+
+function toggleMenu(){
+  setMenuOpen(!isMenuOpen());
+}
+
+document.addEventListener('click', function(e){
+  if(!isMenuOpen()) return;
+  var menu = document.getElementById('dropdown-menu');
+  var btn = document.getElementById('menu-btn');
+  if(menu && menu.contains(e.target)) return;
+  if(btn && btn.contains(e.target)) return;
+  setMenuOpen(false);
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && isMenuOpen()) setMenuOpen(false);
+});
+
+window.addEventListener('resize', function(){
+  if(window.innerWidth >= 640) setMenuOpen(false);
+});
+
 function showTab(name){
+  setMenuOpen(false);
   document.querySelectorAll('[data-tab-panel]').forEach(function(sec){
     sec.classList.toggle('hidden', sec.id !== 'tab-' + name);
   });
@@ -9,7 +46,15 @@ function showTab(name){
     btn.classList.toggle('text-on-surface-variant', !active);
     btn.setAttribute('aria-current', active ? 'page' : 'false');
   });
+  document.querySelectorAll('[data-menu-item]').forEach(function(item){
+    var label = item.textContent.trim();
+    item.classList.toggle('text-primary', label === menuLabelFor(name));
+  });
   window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function menuLabelFor(tab){
+  return { accueil:'Accueil', projets:'Projets', expertise:'Expertise', parcours:'Parcours', contact:'Contact' }[tab];
 }
 
 function setFormStatus(msg, kind){
