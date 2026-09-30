@@ -59,7 +59,7 @@ Le site intègre :
 - des données structurées JSON-LD (`Person`)
 - `robots.txt` et `sitemap.xml`
 
-> **Information** : le site est déployé sur `https://lompo-ibrahim.dev`. Le SEO est mis à jour : meta description, Open Graph, données structurées JSON-LD, `robots.txt` et `sitemap.xml`.
+> **Information** : le site est déployé sur `https://portfolio-lompo-ibrahim.vercel.app`. Le SEO est mis à jour : meta description, Open Graph, données structurées JSON-LD, `robots.txt` et `sitemap.xml`.
 
 ## Contact
 
