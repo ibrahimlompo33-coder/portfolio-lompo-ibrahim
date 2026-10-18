@@ -1,6 +1,6 @@
 var map3d = null;
 var map3dInit = false;
-var map3dFlat = false;
+var map3dGlobe = true;
 
 function map3dFallback(el, msg){
   el.innerHTML = '<div class="w-full h-full flex items-center justify-center text-center p-4 text-[12px] text-[#6B7280]">' + msg + '</div>';
@@ -18,16 +18,16 @@ function initMap3D(){
     { ll: [10.317, -3.167], nom: 'Gaoua', info: 'Poster scientifique, potentiel de fertilite des sols' },
     { ll: [12.0616, 0.3584], nom: "Fada N'Gourma", info: 'Stage en urbanisme, donnees foncieres' }
   ];
-  var pitch3d = isMobile ? 45 : 60;
 
   try {
     map3d = new maplibregl.Map({
       container: 'projects-map3d',
       style: 'https://tiles.openfreemap.org/styles/liberty',
-      center: [-1.6, 11.9],
-      zoom: 6,
-      pitch: pitch3d,
-      bearing: -12,
+      projection: { type: 'globe' },
+      center: [-1.6, 12.5],
+      zoom: isMobile ? 2.1 : 2.7,
+      pitch: 0,
+      bearing: 0,
       maxPitch: 85,
       cooperativeGestures: true,
       canvasContextAttributes: { antialias: !isMobile },
@@ -69,9 +69,7 @@ function initMap3D(){
   });
 
   map3d.on('error', function(e){
-    if(e && e.error && map3d && !map3d.loaded()){
-      console.error('map3d', e.error);
-    }
+    if(e && e.error) console.error('map3d', e.error);
   });
 
   zones.forEach(function(z){
@@ -81,15 +79,20 @@ function initMap3D(){
   });
 
   var bounds = new maplibregl.LngLatBounds(zones[0].ll, zones[2].ll);
-  map3d.fitBounds(bounds, { padding: isMobile ? 48 : 80, duration: 0 });
-  map3d.jumpTo({ pitch: pitch3d, bearing: -12 });
+  function centerZones(){
+    map3d.fitBounds(bounds, { padding: isMobile ? 48 : 80, pitch: 45, duration: 1400 });
+  }
 
-  var btn = document.getElementById('map3d-pitch');
-  if(btn){
-    btn.addEventListener('click', function(){
-      map3dFlat = !map3dFlat;
-      map3d.easeTo({ pitch: map3dFlat ? 0 : pitch3d, duration: 900 });
-      btn.textContent = map3dFlat ? 'Vue 3D' : 'Vue plane';
+  var centerBtn = document.getElementById('map3d-center');
+  if(centerBtn) centerBtn.addEventListener('click', centerZones);
+
+  var projBtn = document.getElementById('map3d-proj');
+  if(projBtn){
+    projBtn.addEventListener('click', function(){
+      map3dGlobe = !map3dGlobe;
+      map3d.setProjection({ type: map3dGlobe ? 'globe' : 'mercator' });
+      projBtn.textContent = map3dGlobe ? 'Vue plate' : 'Vue globe';
+      setTimeout(function(){ if(map3d) map3d.resize(); }, 300);
     });
   }
 
