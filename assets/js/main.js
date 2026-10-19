@@ -1,102 +1,189 @@
-var map3d = null;
-var map3dInit = false;
-var map3dFlat = false;
+var cesiumViewer = null;
+var cesiumInit = false;
+var cutActive = false;
+var insideActive = false;
+var cutPlane = null;
 
-function map3dFallback(el, msg){
-  el.innerHTML = '<div class="w-full h-full flex items-center justify-center text-center p-4 text-[12px] text-[#6B7280]">' + msg + '</div>';
+var OUA = { lon: -1.5197, lat: 12.3714 };
+
+function v3dStatus(msg){
+  var el = document.getElementById('v3d-status');
+  if(el) el.textContent = msg;
 }
 
-function initMap3D(){
-  if(map3dInit) return;
-  var el = document.getElementById('projects-map3d');
-  if(!el || typeof maplibregl === 'undefined') return;
-  map3dInit = true;
-
-  var isMobile = window.matchMedia('(max-width: 640px)').matches;
-  var zones = [
-    { ll: [12.3714, -1.5197], nom: 'Ouagadougou', info: 'WebSIG Ouagadougou, memoire de Master, missions de cartographie' },
-    { ll: [10.317, -3.167], nom: 'Gaoua', info: 'Poster scientifique, potentiel de fertilite des sols' },
-    { ll: [12.0616, 0.3584], nom: "Fada N'Gourma", info: 'Stage en urbanisme, donnees foncieres' }
+function buildDemoBuildings(scene){
+  // Maquette de démonstration : volumes bâtis stylisés sur Ouagadougou.
+  var blocks = [
+    { d: 0.0016, h: 34, w: 0.0022, rot: 0.2 },
+    { d: 0.0022, h: 22, w: 0.0018, rot: -0.4 },
+    { d: 0.0014, h: 46, w: 0.0016, rot: 0.9 },
+    { d: 0.0026, h: 14, w: 0.0020, rot: 0.1 },
+    { d: 0.0018, h: 28, w: 0.0015, rot: -0.8 },
+    { d: 0.0030, h: 10, w: 0.0024, rot: 0.5 }
   ];
-  var pitch3d = isMobile ? 45 : 60;
+  blocks.forEach(function(b, i){
+    var lat = OUA.lat + (i - blocks.length / 2) * b.d;
+    var lon = OUA.lon + (i % 2 ? 0.0026 : -0.0026);
+    var positions = Cesium.Cartesian3.fromDegreesArray([
+      lon - b.w / 2, lat - b.d / 2,
+      lon + b.w / 2, lat - b.d / 2,
+      lon + b.w / 2, lat + b.d / 2,
+      lon - b.w / 2, lat + b.d / 2
+    ]);
+    scene.primitives.add(Cesium.PolygonGeometryInstance.fromGeometry({
+      geometry: new Cesium.PolygonGeometry({
+        polygonHierarchy: new Cesium.PolygonHierarchy(positions),
+        height: 0,
+        extrudedHeight: b.h,
+        vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+      }),
+      attributes: {
+        color: Cesium.ColorGeometryInstanceAttribute.fromColor(
+          Cesium.Color.fromCssColorString(i % 2 ? '#8fb8c9' : '#a9c4d2').withAlpha(0.92)
+        )
+      },
+      id: 'batiment-' + i
+    }));
+  });
+
+  // Sol + dallage pour cadrer la maquette.
+  var pad = Cesium.Cartesian3.fromDegreesArray([
+    OUA.lon - 0.012, OUA.lat - 0.010,
+    OUA.lon + 0.012, OUA.lat - 0.010,
+    OUA.lon + 0.012, OUA.lat + 0.010,
+    OUA.lon - 0.012, OUA.lat + 0.010
+  ]);
+  scene.primitives.add(Cesium.PolygonGeometryInstance.fromGeometry({
+    geometry: new Cesium.PolygonGeometry({
+      polygonHierarchy: new Cesium.PolygonHierarchy(pad),
+      height: 0,
+      extrudedHeight: 0.4,
+      vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+    }),
+    attributes: {
+      color: Cesium.ColorGeometryInstanceAttribute.fromColor(
+        Cesium.Color.fromCssColorString('#1c2a33').withAlpha(0.85)
+      )
+    }
+  }));
+}
+
+function updateClipPlane(){
+  var scene = cesiumViewer.scene;
+  var planes = [];
+  if(cutActive || insideActive){
+    var center = Cesium.Cartesian3.fromDegrees(OUA.lon, OUA.lat, 0);
+    // plan vertical qui scie la maquette en deux
+    var plane = Cesium.Plane.fromPointAndNormal(
+      center,
+      Cesium.Cartesian3.normalize(Cesium.Cartesian3.fromDegrees(OUA.lon + 0.0025, OUA.lat, 0), new Cesium.Cartesian3())
+    );
+    planes.push(plane);
+    cutPlane = plane;
+  } else {
+    cutPlane = null;
+  }
+  scene.globe.clippingPlanes = Cesium.ClippingPlaneCollection.fromArray(planes);
+  scene.globe.clippingPlanes.enabled = planes.length > 0;
+}
+
+function flyToView(kind){
+  var scene = cesiumViewer.scene;
+  var h = 420;
+  if(kind === 'top'){
+    cesiumViewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(OUA.lon, OUA.lat, h * 2.2),
+      orientation: { heading: 0, pitch: Cesium.Math.toRadians(-90), roll: 0 },
+      duration: 1.4
+    });
+  } else if(kind === 'inside'){
+    cesiumViewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(OUA.lon - 0.0016, OUA.lat + 0.0008, 26),
+      orientation: { heading: Cesium.Math.toRadians(35), pitch: Cesium.Math.toRadians(-6), roll: 0 },
+      duration: 1.6
+    });
+  } else {
+    cesiumViewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(OUA.lon - 0.016, OUA.lat - 0.014, h),
+      orientation: { heading: Cesium.Math.toRadians(20), pitch: Cesium.Math.toRadians(-32), roll: 0 },
+      duration: 1.4
+    });
+  }
+}
+
+function initCesium3D(){
+  if(cesiumInit) return;
+  var el = document.getElementById('cesium3d');
+  if(!el || typeof Cesium === 'undefined') return;
+  cesiumInit = true;
 
   try {
-    map3d = new maplibregl.Map({
-      container: 'projects-map3d',
-      style: 'https://tiles.openfreemap.org/styles/liberty',
-      center: [-1.6, 11.9],
-      zoom: 6,
-      pitch: pitch3d,
-      bearing: -12,
-      maxPitch: 85,
-      cooperativeGestures: true,
-      canvasContextAttributes: { antialias: !isMobile },
-      attributionControl: { compact: true, customAttribution: 'Relief: SRTM / AWS Terrain Tiles' }
+    cesiumViewer = new Cesium.Viewer('cesium3d', {
+      baseLayerPicker: false,
+      geocoder: false,
+      homeButton: false,
+      sceneModePicker: false,
+      navigationHelpButton: false,
+      animation: false,
+      timeline: false,
+      fullscreenButton: false,
+      infoBox: false,
+      selectionIndicator: false,
+      shouldAnimate: false
     });
   } catch(e) {
-    map3dFallback(el, 'Vue 3D indisponible sur ce navigateur.');
+    el.innerHTML = '<div class="w-full h-full flex items-center justify-center text-center p-4 text-[12px] text-[#6B7280]">Vue 3D indisponible sur ce navigateur.</div>';
     return;
   }
 
-  map3d.addControl(new maplibregl.NavigationControl({ showCompass: true }), 'top-right');
+  cesiumViewer.imageryLayers.removeAll();
+  cesiumViewer.imageryLayers.addImageryProvider(
+    new Cesium.OpenStreetMapImageryProvider({ url: 'https://tile.openstreetmap.org/' })
+  );
+  cesiumViewer.scene.globe.enableLighting = true;
 
-  map3d.on('load', function(){
-    map3d.addSource('terrainSource', {
-      type: 'raster-dem',
-      tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
-      tileSize: 256,
-      maxzoom: 14,
-      encoding: 'terrarium'
-    });
-    map3d.setTerrain({ source: 'terrainSource', exaggeration: isMobile ? 1.2 : 1.6 });
+  buildDemoBuildings(cesiumViewer.scene);
 
-    var src = map3d.getSource('openmaptiles');
-    if(src){
-      map3d.addLayer({
-        id: 'buildings-3d',
-        type: 'fill-extrusion',
-        source: 'openmaptiles',
-        'source-layer': 'building',
-        filter: ['==', 'extrude', 'true'],
-        paint: {
-          'fill-extrusion-color': '#a9c4d2',
-          'fill-extrusion-height': ['get', 'height'],
-          'fill-extrusion-base': ['get', 'min_height'],
-          'fill-extrusion-opacity': 0.75
-        }
-      });
-    }
-  });
+  var immersive = document.getElementById('v3d-immersive');
+  var cutBtn = document.getElementById('v3d-cut');
+  var insideBtn = document.getElementById('v3d-inside');
+  var topBtn = document.getElementById('v3d-top');
 
-  map3d.on('error', function(e){
-    if(e && e.error && map3d && !map3d.loaded()){
-      console.error('map3d', e.error);
-    }
-  });
+  if(immersive) immersive.addEventListener('click', function(){ flyToView('immersion'); });
+  if(topBtn) topBtn.addEventListener('click', function(){ flyToView('top'); });
 
-  zones.forEach(function(z){
-    var marker = new maplibregl.Marker({ color: '#12B7D6' }).setLngLat(z.ll);
-    marker.setPopup(new maplibregl.Popup({ offset: 18, closeButton: false }).setHTML('<strong>' + z.nom + '</strong><br/>' + z.info));
-    marker.addTo(map3d);
-  });
-
-  var bounds = new maplibregl.LngLatBounds(zones[0].ll, zones[2].ll);
-  map3d.fitBounds(bounds, { padding: isMobile ? 48 : 80, duration: 0 });
-  map3d.jumpTo({ pitch: pitch3d, bearing: -12 });
-
-  var btn = document.getElementById('map3d-pitch');
-  if(btn){
-    btn.addEventListener('click', function(){
-      map3dFlat = !map3dFlat;
-      map3d.easeTo({ pitch: map3dFlat ? 0 : pitch3d, duration: 900 });
-      btn.textContent = map3dFlat ? 'Vue 3D' : 'Vue plane';
+  if(cutBtn){
+    cutBtn.addEventListener('click', function(){
+      cutActive = !cutActive;
+      insideActive = false;
+      updateClipPlane();
+      cutBtn.textContent = cutActive ? 'Coupe OK' : 'Coupe';
+      if(insideBtn) insideBtn.textContent = 'Intérieur';
+      flyToView('immersion');
+      v3dStatus(cutActive ? 'Coupe active : la maquette est tranchée.' : 'Coupe désactivée.');
     });
   }
 
-  var resizeTimer = null;
+  if(insideBtn){
+    insideBtn.addEventListener('click', function(){
+      insideActive = !insideActive;
+      cutActive = false;
+      updateClipPlane();
+      insideBtn.textContent = insideActive ? 'Intérieur ON' : 'Intérieur';
+      if(cutBtn) cutBtn.textContent = 'Coupe';
+      flyToView(insideActive ? 'inside' : 'immersion');
+      v3dStatus(insideActive ? 'Vue intérieure : placez-vous dans le bâtiment scié.' : 'Vue intérieure désactivée.');
+    });
+  }
+
+  flyToView('immersion');
+
+  var timer = null;
   window.addEventListener('resize', function(){
-    if(resizeTimer) clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function(){ if(map3d) map3d.resize(); }, 150);
+    if(timer) clearTimeout(timer);
+    timer = setTimeout(function(){
+      if(cesiumViewer && !cesiumViewer.isDestroyed()) cesiumViewer.resize();
+    }, 150);
   });
 }
 
@@ -112,8 +199,8 @@ function showTab(name){
     btn.setAttribute('aria-current', active ? 'page' : 'false');
   });
   if(name === 'projets'){
-    initMap3D();
-    setTimeout(function(){ if(map3d) map3d.resize(); }, 120);
+    initCesium3D();
+    setTimeout(function(){ if(cesiumViewer && !cesiumViewer.isDestroyed()) cesiumViewer.resize(); }, 150);
   }
   window.scrollTo({top:0, behavior:'smooth'});
 }
