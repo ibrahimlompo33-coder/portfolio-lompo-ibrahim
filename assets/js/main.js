@@ -2,7 +2,6 @@ var cesiumViewer = null;
 var cesiumInit = false;
 var cutActive = false;
 var insideActive = false;
-var cutPlane = null;
 
 var OUA = { lon: -1.5197, lat: 12.3714 };
 
@@ -11,16 +10,21 @@ function v3dStatus(msg){
   if(el) el.textContent = msg;
 }
 
+function v3dReady(){
+  return !!(cesiumViewer && !cesiumViewer.isDestroyed());
+}
+
 function buildDemoBuildings(scene){
   // Maquette de démonstration : volumes bâtis stylisés sur Ouagadougou.
   var blocks = [
-    { d: 0.0016, h: 34, w: 0.0022, rot: 0.2 },
-    { d: 0.0022, h: 22, w: 0.0018, rot: -0.4 },
-    { d: 0.0014, h: 46, w: 0.0016, rot: 0.9 },
-    { d: 0.0026, h: 14, w: 0.0020, rot: 0.1 },
-    { d: 0.0018, h: 28, w: 0.0015, rot: -0.8 },
-    { d: 0.0030, h: 10, w: 0.0024, rot: 0.5 }
+    { d: 0.0016, h: 34, w: 0.0022 },
+    { d: 0.0022, h: 22, w: 0.0018 },
+    { d: 0.0014, h: 46, w: 0.0016 },
+    { d: 0.0026, h: 14, w: 0.0020 },
+    { d: 0.0018, h: 28, w: 0.0015 },
+    { d: 0.0030, h: 10, w: 0.0024 }
   ];
+
   blocks.forEach(function(b, i){
     var lat = OUA.lat + (i - blocks.length / 2) * b.d;
     var lon = OUA.lon + (i % 2 ? 0.0026 : -0.0026);
@@ -30,80 +34,90 @@ function buildDemoBuildings(scene){
       lon + b.w / 2, lat + b.d / 2,
       lon - b.w / 2, lat + b.d / 2
     ]);
-    scene.primitives.add(Cesium.PolygonGeometryInstance.fromGeometry({
-      geometry: new Cesium.PolygonGeometry({
-        polygonHierarchy: new Cesium.PolygonHierarchy(positions),
-        height: 0,
-        extrudedHeight: b.h,
-        vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+    var color = Cesium.Color.fromCssColorString(i % 2 ? '#8fb8c9' : '#a9c4d2').withAlpha(0.92);
+
+    scene.primitives.add(new Cesium.Primitive({
+      geometryInstances: new Cesium.PolygonGeometryInstance({
+        geometry: new Cesium.PolygonGeometry({
+          polygonHierarchy: new Cesium.PolygonHierarchy(positions),
+          height: 0,
+          extrudedHeight: b.h,
+          vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+        }),
+        attributes: { color: Cesium.ColorGeometryInstanceAttribute.fromColor(color) },
+        id: 'batiment-' + i
       }),
-      attributes: {
-        color: Cesium.ColorGeometryInstanceAttribute.fromColor(
-          Cesium.Color.fromCssColorString(i % 2 ? '#8fb8c9' : '#a9c4d2').withAlpha(0.92)
-        )
-      },
-      id: 'batiment-' + i
+      appearance: new Cesium.PerInstanceColorAppearance({ flat: true, translucent: false, closed: false }),
+      asynchronous: false,
+      allowPicking: true
     }));
   });
 
-  // Sol + dallage pour cadrer la maquette.
+  // Dalle au sol pour cadrer la maquette.
   var pad = Cesium.Cartesian3.fromDegreesArray([
     OUA.lon - 0.012, OUA.lat - 0.010,
     OUA.lon + 0.012, OUA.lat - 0.010,
     OUA.lon + 0.012, OUA.lat + 0.010,
     OUA.lon - 0.012, OUA.lat + 0.010
   ]);
-  scene.primitives.add(Cesium.PolygonGeometryInstance.fromGeometry({
-    geometry: new Cesium.PolygonGeometry({
-      polygonHierarchy: new Cesium.PolygonHierarchy(pad),
-      height: 0,
-      extrudedHeight: 0.4,
-      vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+  scene.primitives.add(new Cesium.Primitive({
+    geometryInstances: new Cesium.PolygonGeometryInstance({
+      geometry: new Cesium.PolygonGeometry({
+        polygonHierarchy: new Cesium.PolygonHierarchy(pad),
+        height: 0,
+        extrudedHeight: 0.4,
+        vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+      }),
+      attributes: {
+        color: Cesium.ColorGeometryInstanceAttribute.fromColor(
+          Cesium.Color.fromCssColorString('#1c2a33').withAlpha(0.85)
+        )
+      }
     }),
-    attributes: {
-      color: Cesium.ColorGeometryInstanceAttribute.fromColor(
-        Cesium.Color.fromCssColorString('#1c2a33').withAlpha(0.85)
-      )
-    }
+    appearance: new Cesium.PerInstanceColorAppearance({ flat: true, translucent: false, closed: false }),
+    asynchronous: false
   }));
 }
 
 function updateClipPlane(){
+  if(!v3dReady()) return;
   var scene = cesiumViewer.scene;
-  var planes = [];
+  if(!scene.globe.clippingPlanes){
+    scene.globe.clippingPlanes = new Cesium.ClippingPlaneCollection({});
+  }
   if(cutActive || insideActive){
     var center = Cesium.Cartesian3.fromDegrees(OUA.lon, OUA.lat, 0);
-    // plan vertical qui scie la maquette en deux
-    var plane = Cesium.Plane.fromPointAndNormal(
-      center,
-      Cesium.Cartesian3.normalize(Cesium.Cartesian3.fromDegrees(OUA.lon + 0.0025, OUA.lat, 0), new Cesium.Cartesian3())
+    var east = Cesium.Cartesian3.normalize(
+      Cesium.Cartesian3.fromDegrees(OUA.lon + 0.0022, OUA.lat, 0),
+      new Cesium.Cartesian3()
     );
-    planes.push(plane);
-    cutPlane = plane;
+    var plane = Cesium.Plane.fromPointAndNormal(center, east);
+    scene.globe.clippingPlanes.clippingPlanes = [plane];
+    scene.globe.clippingPlanes.enabled = true;
   } else {
-    cutPlane = null;
+    scene.globe.clippingPlanes.clippingPlanes = [];
+    scene.globe.clippingPlanes.enabled = false;
   }
-  scene.globe.clippingPlanes = Cesium.ClippingPlaneCollection.fromArray(planes);
-  scene.globe.clippingPlanes.enabled = planes.length > 0;
 }
 
 function flyToView(kind){
-  var scene = cesiumViewer.scene;
+  if(!v3dReady()) return;
   var h = 420;
+  var cam = cesiumViewer.camera;
   if(kind === 'top'){
-    cesiumViewer.camera.flyTo({
+    cam.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(OUA.lon, OUA.lat, h * 2.2),
       orientation: { heading: 0, pitch: Cesium.Math.toRadians(-90), roll: 0 },
       duration: 1.4
     });
   } else if(kind === 'inside'){
-    cesiumViewer.camera.flyTo({
+    cam.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(OUA.lon - 0.0016, OUA.lat + 0.0008, 26),
       orientation: { heading: Cesium.Math.toRadians(35), pitch: Cesium.Math.toRadians(-6), roll: 0 },
       duration: 1.6
     });
   } else {
-    cesiumViewer.camera.flyTo({
+    cam.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(OUA.lon - 0.016, OUA.lat - 0.014, h),
       orientation: { heading: Cesium.Math.toRadians(20), pitch: Cesium.Math.toRadians(-32), roll: 0 },
       duration: 1.4
@@ -111,11 +125,41 @@ function flyToView(kind){
   }
 }
 
+function zoomBy(meters){
+  if(!v3dReady()) return;
+  var cam = cesiumViewer.camera;
+  if(meters > 0) cam.zoomIn(meters);
+  else cam.zoomOut(Math.abs(meters));
+}
+
+function bindV3dButton(id, fn){
+  var btn = document.getElementById(id);
+  if(!btn) return null;
+  btn.addEventListener('click', function(){
+    if(!v3dReady()){
+      v3dStatus('Vue 3D non chargee.');
+      return;
+    }
+    try { fn(btn); }
+    catch(e){
+      console.error(id, e);
+      v3dStatus('Action indisponible.');
+    }
+  });
+  return btn;
+}
+
 function initCesium3D(){
   if(cesiumInit) return;
   var el = document.getElementById('cesium3d');
-  if(!el || typeof Cesium === 'undefined') return;
+  if(!el || typeof Cesium === 'undefined'){
+    v3dStatus('Moteur 3D non charge (verifiez la connexion reseau).');
+    return;
+  }
   cesiumInit = true;
+
+  // Aucune dependance a Cesium ion : pas de token, pas d'appel reseau bloquant.
+  Cesium.Ion.defaultAccessToken = undefined;
 
   try {
     cesiumViewer = new Cesium.Viewer('cesium3d', {
@@ -129,52 +173,57 @@ function initCesium3D(){
       fullscreenButton: false,
       infoBox: false,
       selectionIndicator: false,
-      shouldAnimate: false
+      shouldAnimate: false,
+      baseLayer: Cesium.ImageryLayer.fromProviderAsync(
+        Promise.resolve(new Cesium.OpenStreetMapImageryProvider({ url: 'https://tile.openstreetmap.org/' })),
+        {}
+      ),
+      terrainProvider: new Cesium.EllipsoidTerrainProvider()
     });
   } catch(e) {
+    console.error('Cesium init', e);
     el.innerHTML = '<div class="w-full h-full flex items-center justify-center text-center p-4 text-[12px] text-[#6B7280]">Vue 3D indisponible sur ce navigateur.</div>';
+    v3dStatus('Initialisation 3D impossible.');
     return;
   }
 
-  cesiumViewer.imageryLayers.removeAll();
-  cesiumViewer.imageryLayers.addImageryProvider(
-    new Cesium.OpenStreetMapImageryProvider({ url: 'https://tile.openstreetmap.org/' })
-  );
   cesiumViewer.scene.globe.enableLighting = true;
+  cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
 
-  buildDemoBuildings(cesiumViewer.scene);
-
-  var immersive = document.getElementById('v3d-immersive');
-  var cutBtn = document.getElementById('v3d-cut');
-  var insideBtn = document.getElementById('v3d-inside');
-  var topBtn = document.getElementById('v3d-top');
-
-  if(immersive) immersive.addEventListener('click', function(){ flyToView('immersion'); });
-  if(topBtn) topBtn.addEventListener('click', function(){ flyToView('top'); });
-
-  if(cutBtn){
-    cutBtn.addEventListener('click', function(){
-      cutActive = !cutActive;
-      insideActive = false;
-      updateClipPlane();
-      cutBtn.textContent = cutActive ? 'Coupe OK' : 'Coupe';
-      if(insideBtn) insideBtn.textContent = 'Intérieur';
-      flyToView('immersion');
-      v3dStatus(cutActive ? 'Coupe active : la maquette est tranchée.' : 'Coupe désactivée.');
-    });
+  try {
+    buildDemoBuildings(cesiumViewer.scene);
+    v3dStatus('Maquette 3D chargee. Glissez pour tourner, utilisez + et - pour zoomer.');
+  } catch(e) {
+    console.error('buildDemoBuildings', e);
+    v3dStatus('Maquette 3D partiellement chargee.');
   }
 
-  if(insideBtn){
-    insideBtn.addEventListener('click', function(){
-      insideActive = !insideActive;
-      cutActive = false;
-      updateClipPlane();
-      insideBtn.textContent = insideActive ? 'Intérieur ON' : 'Intérieur';
-      if(cutBtn) cutBtn.textContent = 'Coupe';
-      flyToView(insideActive ? 'inside' : 'immersion');
-      v3dStatus(insideActive ? 'Vue intérieure : placez-vous dans le bâtiment scié.' : 'Vue intérieure désactivée.');
-    });
-  }
+  bindV3dButton('v3d-zoom-in', function(){ zoomBy(60000); });
+  bindV3dButton('v3d-zoom-out', function(){ zoomBy(-60000); });
+  bindV3dButton('v3d-immersive', function(){ flyToView('immersion'); });
+  bindV3dButton('v3d-top', function(){ flyToView('top'); });
+
+  bindV3dButton('v3d-cut', function(btn){
+    cutActive = !cutActive;
+    insideActive = false;
+    updateClipPlane();
+    btn.textContent = cutActive ? 'Coupe OK' : 'Coupe';
+    var ib = document.getElementById('v3d-inside');
+    if(ib) ib.textContent = 'Intérieur';
+    flyToView('immersion');
+    v3dStatus(cutActive ? 'Coupe active : la maquette est tranchee.' : 'Coupe desactivee.');
+  });
+
+  bindV3dButton('v3d-inside', function(btn){
+    insideActive = !insideActive;
+    cutActive = false;
+    updateClipPlane();
+    btn.textContent = insideActive ? 'Interieur ON' : 'Intérieur';
+    var cb = document.getElementById('v3d-cut');
+    if(cb) cb.textContent = 'Coupe';
+    flyToView(insideActive ? 'inside' : 'immersion');
+    v3dStatus(insideActive ? 'Vue interieure : la maquette est ouverte.' : 'Vue interieure desactivee.');
+  });
 
   flyToView('immersion');
 
@@ -182,7 +231,7 @@ function initCesium3D(){
   window.addEventListener('resize', function(){
     if(timer) clearTimeout(timer);
     timer = setTimeout(function(){
-      if(cesiumViewer && !cesiumViewer.isDestroyed()) cesiumViewer.resize();
+      if(v3dReady()) cesiumViewer.resize();
     }, 150);
   });
 }
