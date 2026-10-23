@@ -64,9 +64,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="assets/js/tailwind-config.js"></script>
 <link rel="stylesheet" href="assets/css/style.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cesium@1.146.0/Build/Cesium/Widgets/widgets.css"/>
-<script>window.CESIUM_BASE_URL = 'https://cdn.jsdelivr.net/npm/cesium@1.146.0/Build/Cesium/';</script>
-<script src="https://cdn.jsdelivr.net/npm/cesium@1.146.0/Build/Cesium/Cesium.js"></script>
 </head>
 <body class="bg-surface-container-lowest font-body-md text-on-surface flex flex-col min-h-screen">
 
@@ -193,23 +190,6 @@
 
 <!-- ================= PROJETS ================= -->
 <section id="tab-projets" data-tab-panel class="hidden flex flex-col gap-space-lg">
-
-  <div>
-    <div class="flex items-center justify-between gap-2 flex-wrap">
-      <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Ma maquette 3D interactive</h2>
-      <div class="flex items-center gap-2 flex-wrap">
-        <button id="v3d-zoom-in" type="button" class="chip" aria-label="Zoomer">+</button>
-        <button id="v3d-zoom-out" type="button" class="chip" aria-label="Dézoomer">-</button>
-        <button id="v3d-immersive" type="button" class="chip">Vue immersive</button>
-        <button id="v3d-cut" type="button" class="chip">Coupe</button>
-        <button id="v3d-inside" type="button" class="chip">Intérieur</button>
-        <button id="v3d-top" type="button" class="chip">Vue du dessus</button>
-      </div>
-    </div>
-    <div id="cesium3d" class="w-full rounded-[20px] overflow-hidden border border-white/10" style="height:360px;"></div>
-    <p class="text-[11px] text-[#6B7280] mt-2">Globe 3D (moteur Cesium), bâtiments en volume et vue en coupe pour inspecter l'intérieur d'un ouvrage. Glisser pour tourner la caméra, molette ou pincement pour zoomer.</p>
-    <p id="v3d-status" class="text-[11px] text-primary mt-1" role="status" aria-live="polite"></p>
-  </div>
 
   <div>
     <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Plugins QGIS</h2>
